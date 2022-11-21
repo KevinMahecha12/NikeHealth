@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TerceraActivity">
+
+    <CheckBox
+        android:id="@+id/siestaCB"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:backgroundTint="@color/Barra"
+        android:text="Siesta"
+        android:textColor="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ocioCB" />
+
+    <EditText
+        android:id="@+id/TIEMPOSIESTA"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="@color/Barra"
+        android:ems="10"
+        android:hint="Tiempo de Siesta"
+        android:inputType="number"
+        android:textColor="@color/Texto"
+        android:textColorHint="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TIEMPOOCIO" />
+
+    <EditText
+        android:id="@+id/TIEMPOOCIO"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="@color/Barra"
+        android:ems="10"
+        android:hint="Tiempo de Ocio"
+        android:inputType="number"
+        android:textColor="@color/Texto"
+        android:textColorHint="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meditarCB" />
+
+    <CheckBox
+        android:id="@+id/ocioCB"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:backgroundTint="@color/Barra"
+        android:text="Ocio"
+        android:textColor="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/videojuegosCB" />
+
+    <CheckBox
+        android:id="@+id/videojuegosCB"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:backgroundTint="@color/Barra"
+        android:text="Videojuegos"
+        android:textColor="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/estudiarCB" />
+
+    <CheckBox
+        android:id="@+id/deporteCB"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:backgroundTint="@color/Barra"
+        android:text="Deporte"
+        android:textColor="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trabajarCB" />
+
+    <CheckBox
+        android:id="@+id/estudiarCB"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:backgroundTint="@color/Barra"
+        android:text="Estudiar"
+        android:textColor="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deporteCB" />
+
+    <CheckBox
+        android:id="@+id/vertvCB"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="@color/Barra"
+        android:text="Ver TV"
+        android:textColor="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/caminataCB" />
+
+    <CheckBox
+        android:id="@+id/meditarCB"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="@color/Barra"
+        android:text="Meditar"
+        android:textColor="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vertvCB" />
+
+    <CheckBox
+        android:id="@+id/gymCB"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="@color/Barra"
+        android:text="Gym"
+        android:textColor="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/actividadesTitulo" />
+
+    <CheckBox
+        android:id="@+id/caminataCB"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="@color/Barra"
+        android:text="Caminata"
+        android:textColor="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gymCB" />
+
+    <EditText
+        android:id="@+id/HORADORMIR"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/Barra"
+        android:ems="10"
+        android:hint="0"
+        android:inputType="time"
+        android:textColor="@color/Texto"
+        android:textColorHint="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horaTitulo" />
+
+    <TextView
+        android:id="@+id/horaTitulo"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:text="Hora de dormir "
+        android:textAlignment="viewStart"
+        android:textColor="@color/Texto"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/horasTxt"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Horas"
+        android:textAlignment="viewStart"
+        android:textColor="@color/Texto"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.813"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sueñoTitulo" />
+
+    <TextView
+        android:id="@+id/pmTxt"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="PM"
+        android:textAlignment="viewStart"
+        android:textColor="@color/Texto"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horaTitulo" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/aceptarBtn3"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/boton"
+        android:text="aceptar"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.951" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/volverBtn3"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:background="@drawable/boton"
+        android:text="Volver"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.951" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:background="@drawable/boton"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        tools:ignore="MissingConstraints">
+
+
+        <Spinner
+            android:id="@+id/diaSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            android:backgroundTint="#FFFFFF" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/actividadesTitulo"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Actividades del Dia"
+        android:textAlignment="viewStart"
+        android:textColor="@color/Texto"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horasTxt" />
+
+    <TextView
+        android:id="@+id/sueñoTitulo"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:text="Tiempo de sueño"
+        android:textAlignment="viewStart"
+        android:textColor="@color/Texto"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horaTitulo" />
+
+    <EditText
+        android:id="@+id/TIEMPOSUENO"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/Barra"
+        android:ems="10"
+        android:hint="0"
+        android:inputType="number"
+        android:textColor="@color/Texto"
+        android:textColorHint="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sueñoTitulo" />
+
+    <CheckBox
+        android:id="@+id/trabajarCB"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/Barra"
+        android:text="Trabajar"
+        android:textColor="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/actividadesTitulo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

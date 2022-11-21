@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Alimentacion">
+
+    <TextView
+        android:id="@+id/TITULO"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="Alimentación diaria"
+        android:textAlignment="center"
+        android:textColor="@color/Titulo"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.016" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+
+        android:layout_width="339dp"
+        android:layout_height="57dp"
+        android:background="@drawable/boton"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.569"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.21"
+        tools:ignore="MissingConstraints">
+
+        <Spinner
+            android:id="@+id/COMIDAS_DIARIAS"
+            android:layout_width="345dp"
+            android:layout_height="55dp"
+            android:backgroundTint="#FFFFFF" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/DESAYUNO"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/Barra"
+        android:ems="10"
+        android:hint="Desayuno (ckal)"
+        android:inputType="number"
+        android:textColor="@color/Texto"
+        android:textColorHint="@color/Hint"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.36"
+        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/COMIDA"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/Barra"
+        android:ems="10"
+        android:hint="Comida (ckal)"
+        android:inputType="number"
+        android:textColor="@color/Texto"
+        android:textColorHint="@color/Hint"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.458"
+        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/CENA"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/Barra"
+        android:ems="10"
+        android:hint="Cena (kcal)"
+        android:inputType="number"
+        android:textColor="@color/Texto"
+        android:textColorHint="@color/Hint"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.566"
+        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+    <RadioGroup
+
+        android:layout_width="140dp"
+        android:layout_height="123dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.69"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.812">
+
+        <RadioButton
+            android:id="@+id/RG1litros"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:buttonTint="@color/Hint"
+            android:text="1-2L"
+            android:textColor="@color/Titulo"
+            android:textSize="15dp" />
+
+        <RadioButton
+            android:id="@+id/RG2litros"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:buttonTint="@color/Hint"
+            android:text="2-3L"
+            android:textColor="@color/Titulo"
+            android:textSize="15dp" />
+
+        <RadioButton
+            android:id="@+id/RG3litros"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:buttonTint="@color/Hint"
+            android:text="+3L"
+            android:textColor="@color/Titulo"
+            android:textSize="15dp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/REGISTRO_AGUA"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="Registro de agua (Litros):"
+        android:textAlignment="center"
+        android:textColor="@color/Titulo"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.651" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/REGISTRAR"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/boton"
+        android:onClick="guardar"
+        android:text="continuar"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.992" />
+
+    <TextView
+        android:id="@+id/TXTVIEWCOMIDASALDIA"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="¿Cuantás comidas suele tener al día?"
+        android:textAlignment="center"
+        android:textColor="@color/Titulo"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.144" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

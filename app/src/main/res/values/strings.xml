@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">NikeHealth</string>
+    <string name="datos">Datos personales</string>
+    <string name="alimentacion">Alimentación</string>
+    <string name="habitos">Hábitos</string>
+    <string name="salud">Salud</string>
+
+    <string name="faltadatos">Falta registrar sus datos generales</string>
+    <string name="faltaalimentacion">Falta registrar sus datos alimenticios</string>
+    <string name="faltahabitos">Falta registrar sus hábitos y actividades</string>
+    <string name="faltasalud">(Opcional) Falta registrar sus datos acerca de su salud con datos específicos</string>
+
+    <string name="Introduccion">Para empezar su diagnóstico inicie el registro de los formularios dando clic en el menú.\n </string>
+</resources>

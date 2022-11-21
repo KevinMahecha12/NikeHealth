@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_more"
+        android:title="Iniciar registro"
+        app:showAsAction="always">
+    <menu>
+
+        <item android:id="@+id/itmDatos"  android:title="@string/datos"
+            android:icon="@drawable/ic_dataa"
+            app:showAsAction="ifRoom" />
+        <item android:id="@+id/itmAlimentacion"  android:title="@string/alimentacion"
+            android:icon="@drawable/ic_alimentacion"
+            app:showAsAction="ifRoom" />
+        <item android:id="@+id/itmHabitos"  android:title="@string/habitos"
+            android:icon="@drawable/ic_habitos"
+            app:showAsAction="ifRoom" />
+        <item android:id="@+id/itmSalud"  android:title="@string/salud"
+            android:icon="@drawable/ic_salud"
+            app:showAsAction="ifRoom" />
+    </menu>
+    </item>
+
+
+</menu>

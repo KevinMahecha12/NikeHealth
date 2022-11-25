@@ -2,13 +2,14 @@ package com.example.nikehealth.clases;
 
 import java.io.Serializable;
 
-public class alimentacionclase implements Serializable {
+public class alimentacionclase extends datosclase implements Serializable {
     int Comidas,DesayunoCalorias,ComidaCalorias,CenaCalorias,OpcionLitrosAgua;
 
     public alimentacionclase() {
     }
 
-    public alimentacionclase(int comidas, int desayunoCalorias, int comidaCalorias, int cenaCalorias, int opcionLitrosAgua) {
+    public alimentacionclase(String nombre, int edad, int genero, Double peso, Double estatura, int comidas, int desayunoCalorias, int comidaCalorias, int cenaCalorias, int opcionLitrosAgua) {
+        super(nombre, edad, genero, peso, estatura);
         Comidas = comidas;
         DesayunoCalorias = desayunoCalorias;
         ComidaCalorias = comidaCalorias;

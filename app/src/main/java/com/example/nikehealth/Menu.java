@@ -166,7 +166,7 @@ public class Menu extends AppCompatActivity {
                     resAlimentos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
                     ingesta = "Su ingesta de calorías es muy alta!, su total es : " +caloriastotales;
                 }
-                if(dat.getGenero() == 2 && caloriastotales >=1590 && caloriastotales <=2000) {
+                if(alim.getGenero() == 2 && caloriastotales >=1590 && caloriastotales <=2000) {
                     ingestanormal = true;
                     resAlimentos.setClickable(true);
                     ingesta = "Su ingesta de calorías es saludable!, su total es : " +caloriastotales;
@@ -451,6 +451,17 @@ public class Menu extends AppCompatActivity {
                 atencionsalud.putExtra("alimentacion",alim);
                 atencionsalud.putExtra("habitos",hab);
                 startActivity(atencionsalud);
+                break;
+            case R.id.itmGuardarIMC:
+                dat = (datosclase) getIntent().getSerializableExtra("datos");
+                Intent guardar = new Intent(getApplicationContext(), GuardarIMC.class);
+                guardar.putExtra("datos",dat);
+                startActivity(guardar);
+                break;
+
+            case R.id.itmCargarIMC:
+                intent = new Intent(getApplicationContext(), CargarIMC.class);
+                startActivity(intent);
                 break;
         }
         return super.onOptionsItemSelected(item);

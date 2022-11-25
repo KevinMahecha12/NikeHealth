@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import com.example.nikehealth.clases.alimentacionclase;
+import com.example.nikehealth.clases.atencionsaludclase;
 import com.example.nikehealth.clases.datosclase;
 import com.example.nikehealth.clases.habitosclase;
 
@@ -23,6 +24,7 @@ public class Menu extends AppCompatActivity {
     datosclase dat = new datosclase();
     alimentacionclase alim = new alimentacionclase();
     habitosclase hab = new habitosclase();
+    atencionsaludclase as = new atencionsaludclase();
 
     int contador,contador2,contador3,contador4;
     TextView resHabitos, resAlimentos, resSalud;
@@ -42,6 +44,8 @@ public class Menu extends AppCompatActivity {
     String agua = null;
     String ingesta = null;
     String entrecomidas =  null;
+    boolean consultamedico,tomamedicamentos,problemasemocionales,padecimientoestres;
+    int medico=0,medicamentos=0,emocionales=0,estres=0;
 
     @SuppressLint("ResourceType")
     @Override
@@ -53,6 +57,7 @@ public class Menu extends AppCompatActivity {
         dat = (datosclase) getIntent().getSerializableExtra("datos");
         alim = (alimentacionclase) getIntent().getSerializableExtra("alimentacion");
         hab = (habitosclase) getIntent().getSerializableExtra("habitos");
+        as = (atencionsaludclase) getIntent().getSerializableExtra("atencion");
 
         titulo = findViewById(R.id.TITULO);
         inicio = findViewById(R.id.iniciodiagnostico);
@@ -351,6 +356,56 @@ public class Menu extends AppCompatActivity {
         }
 
 
+        if (as != null) {
+            contador4 = (int) getIntent().getSerializableExtra("completado4");
+            if (contador4 == 1) {
+                resSalud.setBackground(ContextCompat.getDrawable(this, R.drawable.vineta));
+
+                String consulta = null,medicamentos=null,emocionalmente=null,estres=null;
+
+                if (as.isConsultamedico() == true) {
+                    resSalud.setClickable(true);
+                    consultamedico = true;
+                   consulta= "Usted SI ha consultado al médico en los ultimos meses/semanas/días.";
+                } else {
+                    resSalud.setClickable(true);
+                    consultamedico = false;
+                    consulta= "Usted NO ha consultado al médico en los ultimos meses/semanas/días.";
+                }
+                if(as.isTomamedicamentos() == true) {
+                    resSalud.setClickable(true);
+                    tomamedicamentos = true;
+                    medicamentos = "Usted SI ha estado tomando medicamentos.";
+                }else {
+                    resSalud.setClickable(true);
+                    tomamedicamentos = false;
+                    medicamentos = "Usted NO ha estado tomando medicamentos.";
+                }
+                if(as.isProblemasemocionales() == true) {
+                    resSalud.setClickable(true);
+                    problemasemocionales = true;
+                    resSalud.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                    emocionalmente = "Usted SI ha tenido problemas que le pueden estar afectando emocionalmente actualmente.";
+                } else {
+                    resSalud.setClickable(true);
+                    problemasemocionales = false;
+                    emocionalmente = "Usted NO ha tenido problemas que le pueden estar afectando emocionalmente actualmente.";
+                }
+                if(as.isPadecimientosestres() == true) {
+                    resSalud.setClickable(true);
+                    padecimientoestres = true;
+                    resSalud.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                    estres = "Usted SI considera que ha tenido muchas situaciones de estrés a menudo";
+                } else {
+                    resSalud.setClickable(true);
+                    padecimientoestres = false;
+                    estres = "Usted NO considera que ha tenido muchas situaciones de estrés a menudo";
+                }
+
+                resSalud.setText("Usted considera que presenta los siguientes apartados que le pueden afectar a su vida diria: "+"\n\n" +
+                        consulta+"\n\n"+medicamentos+"\n\n"+emocionalmente+"\n\n"+estres);
+            }
+        }
     }
 
     public boolean onCreateOptionsMenu(android.view.Menu menu)
@@ -388,13 +443,50 @@ public class Menu extends AppCompatActivity {
                 break;
 
             case R.id.itmSalud:
-                intent = new Intent(getApplicationContext(), Salud.class);
-                startActivity(intent);
+                dat = (datosclase) getIntent().getSerializableExtra("datos");
+                alim = (alimentacionclase) getIntent().getSerializableExtra("alimentacion");
+                hab = (habitosclase ) getIntent().getSerializableExtra("habitos");
+                Intent atencionsalud = new Intent(getApplicationContext(), atencionsalud.class);
+                atencionsalud.putExtra("datos",dat);
+                atencionsalud.putExtra("alimentacion",alim);
+                atencionsalud.putExtra("habitos",hab);
+                startActivity(atencionsalud);
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
+    public void Vistaatencionsaludclase(View view) {
 
+        if(consultamedico == true) {
+            medico = 1;
+        } else {
+            medico = 2;
+        }
+        if(tomamedicamentos == true) {
+            medicamentos = 1;
+        } else {
+            medicamentos = 2;
+        }
+        if(problemasemocionales == true) {
+            emocionales = 1;
+        } else{
+            emocionales = 2;
+        }
+        if(padecimientoestres == true) {
+            estres = 1;
+        } else {
+            estres = 2;
+        }
+
+        Intent intent = new Intent(this, ResultadosSalud.class);
+        intent.putExtra("medico",medico);
+        intent.putExtra("medicamentos",medicamentos);
+        intent.putExtra("emocionales",emocionales);
+        intent.putExtra("estres",estres);
+        startActivity(intent);
+
+
+    }
     public void VistaHabitos(View view) {
 
     if(duermebien == true){

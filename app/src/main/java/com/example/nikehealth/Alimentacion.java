@@ -21,8 +21,8 @@ public class Alimentacion extends AppCompatActivity {
     EditText desayuno,comida,cena;
     RadioButton uno,dos,tres;
     RadioGroup rg;
-    datosclase d = new datosclase();
     private Integer[] arrcomidas = {1,2,3,4,5,6};
+    datosclase d = new datosclase();
     alimentacionclase a = new alimentacionclase();
 
     @Override

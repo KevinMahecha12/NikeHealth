@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
         android:background="@drawable/boton"
-        android:onClick="registrardatos"
+        android:onClick="registraratensionsalud"
         android:text="Registrar"
         android:textColor="@color/white"
         android:textSize="20dp"

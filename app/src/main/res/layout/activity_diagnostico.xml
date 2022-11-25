@@ -139,6 +139,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:clickable="false"
                 android:id="@+id/faltasalud"
+                android:onClick="Vistaatencionsaludclase"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -146,7 +147,7 @@
                 android:layout_marginRight="20dp"
                 android:width="1dp"
                 android:textAllCaps="false"
-                android:background="@drawable/opcional"
+                android:background="@drawable/vineta"
                 android:padding="10dp"
                 android:radius="15dp"
                 android:text="@string/faltasalud"

@@ -77,29 +77,7 @@ public class Habitos extends AppCompatActivity {
            horasueño.requestFocus();
 
        }
-       if (ocio.isChecked() == true) {
-           if (tiempoocio.getText().toString().trim().isEmpty()) {
 
-               tiempoocio.setError("Rellene el tiempo para continuar");
-               tiempoocio.requestFocus();
-
-           } else {
-               tiempoocio.setEnabled(true);
-               h.setTiempoOcio(Integer.parseInt(tiempoocio.getText().toString()));
-           }
-       }
-
-      if(siesta.isChecked() == true) {
-          if (tiemposiesta.getText().toString().trim().isEmpty()) {
-
-              tiemposiesta.setError("Rellene el tiempo para continuar");
-              tiemposiesta.requestFocus();
-
-          } else {
-              tiemposiesta.setEnabled(true);
-              h.setTiempoSiesta(Integer.parseInt(tiemposiesta.getText().toString()));
-          }
-      }
        if(vertv.isChecked()) {
            ocio.setChecked(true);
        }
@@ -107,6 +85,30 @@ public class Habitos extends AppCompatActivity {
            ocio.setChecked(true);
        }
    }else {
+
+       if (ocio.isChecked() == true) {
+           if (tiempoocio.getText().toString().trim().isEmpty()) {
+
+               tiempoocio.setError("Rellene el tiempo para continuar");
+               tiempoocio.requestFocus();
+
+           } else {
+               h.setTiempoOcio(Integer.parseInt(tiempoocio.getText().toString()));
+           }
+
+       }
+
+       if(siesta.isChecked() == true) {
+           if (tiemposiesta.getText().toString().trim().isEmpty()) {
+
+               tiemposiesta.setError("Rellene el tiempo para continuar");
+               tiemposiesta.requestFocus();
+
+           } else {
+               h.setTiempoSiesta(Integer.parseInt(tiemposiesta.getText().toString()));
+           }
+       }
+
 
 
        if(trabajar.isChecked()) {
@@ -126,11 +128,9 @@ public class Habitos extends AppCompatActivity {
        }
        if(vertv.isChecked()) {
            h.setOcio(1);
-           ocio.setChecked(true);
        }
        if(videojuegos.isChecked()) {
            h.setOcio(1);
-           ocio.setChecked(true);
        }
        if(meditar.isChecked()) {
            h.setSalud(1);
@@ -142,7 +142,6 @@ public class Habitos extends AppCompatActivity {
        if(diasemana.getSelectedItem().toString().equals("Sabado-Domingo")) {
            h.setDiaSemana(2);
        }
-
 
         h.setHoraDormir(Integer.parseInt(horadormir.getText().toString()));
         h.setTiempoSueño(Integer.parseInt(horasueño.getText().toString()));

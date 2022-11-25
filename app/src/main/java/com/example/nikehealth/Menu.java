@@ -37,6 +37,8 @@ public class Menu extends AppCompatActivity {
     boolean ingestanormal;
     boolean aguanormal;
     boolean entrecomidasnormal;
+    int DURMIOBIEN=0,TIENESIESTAS=0,SEACUESTATEMPRANO=0,TIENEOCIO=0,EQUILIBRIO=0,PROBLEMASALUD=0,PROBLEMAOCIO=0;
+    boolean duermebien,tienesiestas,seacuestatemprano,tieneocio,tienesalud;
     String agua = null;
     String ingesta = null;
     String entrecomidas =  null;
@@ -196,71 +198,149 @@ public class Menu extends AppCompatActivity {
                 String ocio = null;
 
                 if(hab.getTiempoSiesta()==0 && hab.getTiempoOcio() >=8) {
+                    resHabitos.setClickable(true);
+
+                    TIENESIESTAS = 2;
+                    TIENEOCIO = 1;
+                    tienesiestas = false;
+                    tieneocio = true;
                     siestas ="Usted no suele tener siestas y tiene mucho tiempo de ocio, lo cual puede afectar a su salud!";
                     resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
                 }
                 if(hab.getTiempoSiesta() == 0) {
+                    resHabitos.setClickable(true);
+
+                    TIENESIESTAS = 2;
+                    tienesiestas = false;
                     siestas ="Usted no suele tener siestas, considere tener un mínimo de 30 minutos si tiene mucho trabajo!";
                 }
                 if(hab.getTiempoSiesta() >= 1) {
+                    resHabitos.setClickable(true);
+                    tienesiestas = true;
+                    TIENESIESTAS = 1;
+
                     siestas ="Usted suele tomar siestas de: "+hab.getTiempoSiesta()+"HR(S) , si trabaja mucho, considere mantener este tiempo para descanar!";
                 }
-                if(hab.getTiempoSueño() < 7 ) {
+                if(hab.getTiempoSueño() <= 7 ) {
+                    resHabitos.setClickable(true);
+                    duermebien = false;
+                    DURMIOBIEN = 2;
+
                     sueño = "Usted suele dormir : "+hab.getTiempoSueño()+" HR(S), lo cual es poco, considere dormir más!";
                     resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
                 }
                 if(hab.getTiempoSueño() >= 8 ) {
+                    resHabitos.setClickable(true);
+                    duermebien = true;
+                    DURMIOBIEN = 1;
+
                     sueño = "Usted suele dormir : "+hab.getTiempoSueño()+" HR(S), lo cual es considerado lo suficiente para tener buen descanso!";
                 }
 
                 if(hab.getHoraDormir() >= 11) {
+                    resHabitos.setClickable(true);
+                    seacuestatemprano = false;
+                    SEACUESTATEMPRANO = 2;
+
                     horadormir = "Usted suele dormirse a las : "+hab.getHoraDormir()+", lo cual es bastante tarde y no recomendable!";
                     resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
                 }
                 if(hab.getHoraDormir() < 11) {
+                    resHabitos.setClickable(true);
+
+                    SEACUESTATEMPRANO = 1;
+                    seacuestatemprano = true;
                     horadormir = "Usted suele dormirse a las : "+hab.getHoraDormir()+", lo cual es temprano y saludable!";
                 }
 
 
                 if (hab.getDiaSemana() == 1) {
+                    resHabitos.setClickable(true);
+
                     dia = "Dias en los que suele realizar las actividades registradas: Lunes a Viernes";
                 }
                 if (hab.getDiaSemana() == 2) {
+                    resHabitos.setClickable(true);
+
                     dia = "Dias en los que suele realizar las actividades registradas: Sabado a Domingo";
                 }
 
                 if (hab.getOcio()==1 && hab.getSalud() == 1 && hab.getTrabajo() == 1) {
+                    resHabitos.setClickable(true);
+
+                    EQUILIBRIO = 1;
+
                     habitos = "Sus hábitos en sus actividades destacan en : Ocio,Salud y Trabajo ó Esutudio";
                 }
                 if (hab.getOcio()==1 && hab.getSalud() == 0 && hab.getTrabajo() == 0) {
+                    resHabitos.setClickable(true);
+
+                    tienesalud = false;
+                    PROBLEMASALUD = 1;
+                    tienesalud = false;
+
                     habitos = "Sus hábitos en sus actividades destacan en : Ocio "+"\n"+" Nota: intente dedicarle tiempo a su salud!";
                     resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
                 }
                 if (hab.getOcio()==1 && hab.getSalud() == 1 && hab.getTrabajo() == 0) {
+                    resHabitos.setClickable(true);
+
+                    EQUILIBRIO = 1;
+
                     habitos = "Sus hábitos en sus actividades destacan en : Ocio y Salud";
                 }
                 if (hab.getOcio()==0 && hab.getSalud() == 1 && hab.getTrabajo() == 0) {
+                    resHabitos.setClickable(true);
+
+                    EQUILIBRIO = 1;
+
                     habitos = "Sus hábitos en sus actividades destacan en : Salud";
                 }
                 if (hab.getOcio()==0 && hab.getSalud() == 0 && hab.getTrabajo() == 1) {
+                    resHabitos.setClickable(true);
+
+                    PROBLEMAOCIO = 1;
+
                     habitos = "Sus hábitos en sus actividades destacan en : Trabajo ó Estudio "+"\n"+" Nota: intente también darse tiempo a usted mismo";
                     resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
                 }
                 if (hab.getOcio()==1 && hab.getSalud() == 0 && hab.getTrabajo() == 1) {
+                    resHabitos.setClickable(true);
+
+                    PROBLEMASALUD = 1;
+                    tienesalud = true;
+
                     habitos = "Sus hábitos en sus actividades destacan en : Ocio y Trabajo ó Estudio"+"\n"+" Nota: intente dedicarle tiempo a su salud!";
                     resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
                 }
                 if (hab.getOcio()==0 && hab.getSalud() == 1 && hab.getTrabajo() == 1) {
+                    resHabitos.setClickable(true);
+
+                    EQUILIBRIO = 1;
+
                     habitos = "Sus hábitos en sus actividades destacan en : Salud y Trabajo ó Estudio";
                 }
                 if(hab.getTiempoOcio()>3) {
+                    resHabitos.setClickable(true);
+
+                    PROBLEMAOCIO = 1;
+
                     ocio = "Su tiempo de ocio : "+hab.getTiempoOcio()+" HR(S) es considerado alto, considere bajarlo y usar ese tiempo en su salud, estudio o trabajo!";
                     resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
                 }
                 if(hab.getTiempoOcio()>0 && hab.getTiempoOcio()<3) {
+                    resHabitos.setClickable(true);
+
+                    PROBLEMAOCIO = 2;
+                    tieneocio = true;
+
                     ocio = "Su tiempo de ocio : "+hab.getTiempoOcio()+" HR(S) es considerado bajo, lo cual no le afecta directamente";
                 }
                 if(hab.getTiempoOcio()==0) {
+                    resHabitos.setClickable(true);
+
+                    tieneocio = false;
+
                     ocio = "Su tiempo de ocio es 0, Considere tener un poco de tiempo para usted mismo y divertirse no todo es el trabajo o el estudio";
                     resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
                 }
@@ -314,6 +394,40 @@ public class Menu extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void VistaHabitos(View view) {
+
+    if(duermebien == true){
+        DURMIOBIEN = 1;
+    } else {
+        DURMIOBIEN = 2;
+    }
+    if(tienesiestas == true) {
+        TIENESIESTAS = 1;
+    }else {
+        TIENESIESTAS = 2;
+    }
+    if (seacuestatemprano == true) {
+        SEACUESTATEMPRANO = 1;
+    }else {
+        SEACUESTATEMPRANO = 2;
+    }
+    if(tieneocio == true) {
+        TIENEOCIO  = 1;
+    } else {
+        TIENEOCIO = 2;
+    }
+
+        Intent intent = new Intent(this, ResultadosHabitos.class);
+        intent.putExtra("duermebien",DURMIOBIEN);
+        intent.putExtra("tienesiesta",TIENESIESTAS);
+        intent.putExtra("temprano",SEACUESTATEMPRANO);
+        intent.putExtra("ocio",TIENEOCIO);
+        intent.putExtra("problemaocio",PROBLEMAOCIO);
+        startActivity(intent);
+
+
+    }
     public void VistaAlimentacion(View view) {
 
         if(ingestanormal == true) {
@@ -333,6 +447,7 @@ public class Menu extends AppCompatActivity {
         if (entrecomidasnormal == false) {
             desicion3 = 2;
         }
+
         Intent intent = new Intent(this, ResultadosAlimentacion.class);
         intent.putExtra("alimentacion",desicion2);
         intent.putExtra("agua",desicion22);

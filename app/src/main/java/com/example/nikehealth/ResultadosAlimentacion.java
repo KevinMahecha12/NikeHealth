@@ -81,5 +81,6 @@ public class ResultadosAlimentacion extends AppCompatActivity {
                     "\n" +
                     "Es decir, las consecuencias de no beber agua durante un largo período pueden ser graves. La deshidratación crónica, entre otros padecimientos, suele aparecer y poner en peligro la salud de la persona.");
         }
+
     }
 }

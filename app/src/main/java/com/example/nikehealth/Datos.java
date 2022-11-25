@@ -4,14 +4,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.nikehealth.clases.datosclase;
 
 public class Datos extends AppCompatActivity {
 
-    EditText nombre,edad,ocupacion,peso,estatura;
+    EditText nombre,edad,peso,estatura;
+    RadioButton hombre,mujer;
     datosclase d = new datosclase();
+    int genero=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,15 +24,15 @@ public class Datos extends AppCompatActivity {
 
         nombre = findViewById(R.id.NOMBRE);
         edad = findViewById(R.id.EDAD);
-        ocupacion = findViewById(R.id.OCUPACION);
+        hombre = findViewById(R.id.RBHombre);
+        mujer = findViewById(R.id.RBMujer);
         peso = findViewById(R.id.PESO);
         estatura = findViewById(R.id.ESTATURA);
-
+        hombre.setChecked(true);
     }
     public void registrardatos(View view) {
 
-        if (nombre.getText().toString().trim().isEmpty() || edad.getText().toString().trim().isEmpty() ||
-        ocupacion.getText().toString().trim().isEmpty() || peso.getText().toString().trim().isEmpty() ||
+        if (nombre.getText().toString().trim().isEmpty() || edad.getText().toString().trim().isEmpty() || peso.getText().toString().trim().isEmpty() ||
                 estatura.getText().toString().trim().isEmpty()) {
 
 
@@ -41,12 +46,6 @@ public class Datos extends AppCompatActivity {
 
                 edad.setError("Rellene el nombre para continuar");
                 edad.requestFocus();
-
-            }
-            if (ocupacion.getText().toString().trim().isEmpty()) {
-
-                ocupacion.setError("Rellene el nombre para continuar");
-                ocupacion.requestFocus();
 
             }
             if (peso.getText().toString().trim().isEmpty()) {
@@ -63,10 +62,17 @@ public class Datos extends AppCompatActivity {
             }
 
         } else {
+
+            if (hombre.isChecked()) {
+               genero = 1;
+            }
+            if (mujer.isChecked()) {
+                genero = 2;
+            }
             Toast.makeText(this, "Se registraron correctamente los datos!",Toast.LENGTH_SHORT).show();
             d.setNombre(nombre.getText().toString());
             d.setEdad(Integer.parseInt(edad.getText().toString()));
-            d.setOcupacion(ocupacion.getText().toString());
+            d.setGenero(genero);
             d.setPeso(Double.parseDouble(peso.getText().toString()));
             d.setEstatura(Double.parseDouble(estatura.getText().toString()));
             Intent intent = new Intent(this, Menu.class);

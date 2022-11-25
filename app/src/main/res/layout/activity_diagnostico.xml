@@ -16,19 +16,24 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/LAYOUTUSADO"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+
+
             <TextView
-                android:id="@+id/DIAGNOSTICO_TITULO"
-                android:layout_width="350dp"
-                android:layout_marginTop="15dp"
+                android:id="@+id/TITULO"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:drawableRight="@drawable/ic_nike"
                 android:text="Inicio de su diagnóstico"
                 android:textAlignment="center"
                 android:textColor="@color/Titulo"
-                android:textSize="50dp"
+                android:drawablePadding="20dp"
+                android:textSize="30dp"
+                android:padding="40dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -38,8 +43,8 @@
                 app:layout_constraintVertical_bias="0.022" />
 
             <TextView
-                android:id="@+id/DIAGNOSTICOTVIEW"
-                android:layout_marginTop="30dp"
+                android:id="@+id/iniciodiagnostico"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -49,7 +54,7 @@
                 android:radius="15dp"
                 android:text="@string/Introduccion"
                 android:textColor="@color/white"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 android:padding="10dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -58,8 +63,11 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.248" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatButton
+                 android:clickable="false"
                 android:id="@+id/faltadatos"
+                android:onClick="VistaPeso"
+                android:textAllCaps="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -71,7 +79,7 @@
                 android:radius="15dp"
                 android:text="@string/faltadatos"
                 android:textColor="@color/white"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -80,29 +88,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/DIAGNOSTICOTVIEW"
                 app:layout_constraintVertical_bias="0.050000012" />
 
-            <TextView
-                android:id="@+id/faltahabitos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginRight="20dp"
-                android:width="1dp"
-                android:background="@drawable/falta"
-                android:padding="10dp"
-                android:radius="15dp"
-                android:text="@string/faltahabitos"
-                android:textColor="@color/white"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/faltadatos"
-                app:layout_constraintVertical_bias="0.024" />
-
-            <TextView
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/faltaalimentos"
+                android:onClick="VistaAlimentacion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -110,11 +98,13 @@
                 android:layout_marginRight="20dp"
                 android:width="1dp"
                 android:background="@drawable/falta"
+                android:clickable="false"
                 android:padding="10dp"
                 android:radius="15dp"
                 android:text="@string/faltaalimentacion"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -122,7 +112,31 @@
                 app:layout_constraintTop_toBottomOf="@+id/faltahabitos"
                 app:layout_constraintVertical_bias="0.051" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatButton
+                android:clickable="false"
+                android:id="@+id/faltahabitos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="20dp"
+                android:textAllCaps="false"
+                android:width="1dp"
+                android:background="@drawable/falta"
+                android:padding="10dp"
+                android:radius="15dp"
+                android:text="@string/faltahabitos"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/faltadatos"
+                app:layout_constraintVertical_bias="0.024" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:clickable="false"
                 android:id="@+id/faltasalud"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -130,12 +144,13 @@
                 android:layout_marginTop="7dp"
                 android:layout_marginRight="20dp"
                 android:width="1dp"
-                android:background="@drawable/falta"
+                android:textAllCaps="false"
+                android:background="@drawable/opcional"
                 android:padding="10dp"
                 android:radius="15dp"
                 android:text="@string/faltasalud"
                 android:textColor="@color/white"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

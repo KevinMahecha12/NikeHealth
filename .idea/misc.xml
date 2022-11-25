@@ -9,18 +9,24 @@
         <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/drawable/ic_alimentacion.xml" value="0.175" />
         <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/drawable/ic_dataa.xml" value="0.175" />
         <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/drawable/ic_habitos.xml" value="0.175" />
+        <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/drawable/ic_nike.xml" value="0.264" />
         <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/drawable/ic_salud.xml" value="0.175" />
+        <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/drawable/opcional.xml" value="0.264" />
         <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/drawable/vineta.xml" value="0.175" />
         <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/layout/activity_actividades.xml" value="0.3338541666666667" />
-        <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/layout/activity_alimentacion.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/layout/activity_alimentacion.xml" value="0.33" />
         <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/layout/activity_atencionsalud.xml" value="0.3338541666666667" />
         <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/layout/activity_datos.xml" value="0.3338541666666667" />
         <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/layout/activity_diagnostico.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/layout/activity_muestra.xml" value="0.33" />
+        <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/layout/activity_resultados.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/layout/activity_resultados_alimentacion.xml" value="0.3338541666666667" />
         <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/layout/activity_segunda.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/layout/activity_tercera.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/layout/spinner.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/menu/menu.xml" value="0.5" />
+        <entry key="..\:/Users/kevin/AndroidStudioProjects/NikeHealth/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.264" />
       </map>
     </option>
   </component>

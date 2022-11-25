@@ -1,20 +1,20 @@
-package com.example.nikehealth;
+package com.example.nikehealth.clases;
 
 import java.io.Serializable;
 
 public class datosclase implements Serializable {
 
-    String nombre,ocupacion;
-    int edad;
+    String nombre;
+    int edad,genero;
     Double peso,estatura;
 
     public datosclase() {
     }
 
-    public datosclase(String nombre, String ocupacion, int edad, Double peso, Double estatura) {
+    public datosclase(String nombre, int edad, int genero, Double peso, Double estatura) {
         this.nombre = nombre;
-        this.ocupacion = ocupacion;
         this.edad = edad;
+        this.genero = genero;
         this.peso = peso;
         this.estatura = estatura;
     }
@@ -35,12 +35,12 @@ public class datosclase implements Serializable {
         this.edad = edad;
     }
 
-    public String getOcupacion() {
-        return ocupacion;
+    public int getGenero() {
+        return genero;
     }
 
-    public void setOcupacion(String ocupacion) {
-        this.ocupacion = ocupacion;
+    public void setGenero(int genero) {
+        this.genero = genero;
     }
 
     public Double getPeso() {

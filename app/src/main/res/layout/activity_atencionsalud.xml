@@ -6,4 +6,143 @@
     android:layout_height="match_parent"
     tools:context=".atencionsalud">
 
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/volverBtn2"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:background="@drawable/boton"
+        android:onClick="regresar"
+        android:text="Volver"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.912" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/aceptarBtn2"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/boton"
+        android:onClick="registrardatos"
+        android:text="Registrar"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.912" />
+
+    <CheckBox
+        android:id="@+id/ESTRES"
+        android:layout_width="242dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/Barra"
+        android:buttonTint="@color/c4"
+        android:text="Padecimiento de estrés a menudo"
+        android:textColor="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.177"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.721" />
+
+    <CheckBox
+        android:id="@+id/EMOCIONAL"
+        android:layout_width="326dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/Barra"
+        android:buttonTint="@color/c4"
+        android:text="Problemas que pueden afectarle emocionalmente"
+        android:textColor="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.352"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.583" />
+
+    <CheckBox
+        android:id="@+id/MEDICO"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/Barra"
+        android:buttonTint="@color/c4"
+        android:text="Consulta al médico en los ultimos meses/semanas"
+        android:textColor="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.127"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.311" />
+
+    <CheckBox
+        android:id="@+id/MEDICINA"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/Barra"
+        android:buttonTint="@color/c4"
+        android:text="Toma de medicamentos"
+        android:textColor="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.127"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.452" />
+
+    <TextView
+        android:id="@+id/TXTVIEWCOMIDASALDIA2"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="Seleccione los apartados que considere, *succeden* en su vida diaria que pueden afectar a su salud:"
+        android:textAlignment="center"
+        android:textColor="@color/Titulo"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.12" />
+
+    <TextView
+        android:id="@+id/TITULOsalud"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="Salud"
+        android:textAlignment="center"
+        android:textColor="@color/Titulo"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.016" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

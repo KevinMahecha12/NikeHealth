@@ -13,11 +13,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NikeHealth"
         tools:targetApi="31">
-        <activity android:name=".Datos"></activity>
+        <activity
+            android:name=".ResultadosAlimentacion"
+            android:exported="false" />
+        <activity
+            android:name=".Resultados"
+            android:exported="false" />
+        <activity
+            android:name=".Habitos"
+            android:exported="false" />
+        <activity android:name=".Datos" />
+        <activity android:name=".Alimentacion" />
         <activity
             android:name=".Menu"
-            android:label="NikeHealth"
-            android:exported="true">
+            android:exported="true"
+            android:label="NikeHealth">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

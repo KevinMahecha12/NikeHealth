@@ -6,60 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".Habitos">
 
-    <CheckBox
-        android:id="@+id/siestaCB"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+    <EditText
+        android:id="@+id/TIEMPOOCIO"
+        android:layout_width="228dp"
+        android:layout_height="46dp"
         android:backgroundTint="@color/Barra"
-        android:text="Siesta"
-        android:textColor="@color/c4"
+        android:ems="10"
+        android:hint="Tiempo de Ocio (HRS)"
+        android:inputType="number"
+        android:textColor="@color/Texto"
+        android:textColorHint="@color/c4"
         android:textSize="20dp"
-        android:buttonTint="@color/c4"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.901"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ocioCB" />
+        app:layout_constraintTop_toBottomOf="@+id/meditarCB" />
 
     <EditText
         android:id="@+id/TIEMPOSIESTA"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
+        android:layout_width="228dp"
+        android:layout_height="46dp"
         android:backgroundTint="@color/Barra"
         android:ems="10"
-        android:hint="Tiempo de Siesta"
+        android:hint="Tiempo de Siesta (HRS)"
         android:inputType="number"
         android:textColor="@color/Texto"
         android:textColorHint="@color/c4"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TIEMPOOCIO" />
-
-    <EditText
-        android:id="@+id/TIEMPOOCIO"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:backgroundTint="@color/Barra"
-        android:ems="10"
-        android:hint="Tiempo de Ocio"
-        android:inputType="number"
-        android:textColor="@color/Texto"
-        android:textColorHint="@color/c4"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meditarCB" />
 
     <CheckBox
         android:id="@+id/ocioCB"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="16dp"
         android:backgroundTint="@color/Barra"
-        android:text="Ocio"
         android:buttonTint="@color/c4"
+        android:text="Ocio"
         android:textColor="@color/c4"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -67,40 +55,41 @@
         app:layout_constraintTop_toBottomOf="@+id/videojuegosCB" />
 
     <CheckBox
-        android:id="@+id/videojuegosCB"
+        android:id="@+id/trabajarCB"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/Barra"
-        android:text="Videojuegos"
         android:buttonTint="@color/c4"
+        android:text="Trabajar"
         android:textColor="@color/c4"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/estudiarCB" />
+        app:layout_constraintTop_toBottomOf="@+id/actividadesTitulo" />
 
     <CheckBox
-        android:id="@+id/deporteCB"
-        android:layout_width="175dp"
+        android:id="@+id/siestaCB"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:buttonTint="@color/c4"
+        android:layout_marginStart="16dp"
         android:backgroundTint="@color/Barra"
-        android:text="Deporte"
+        android:buttonTint="@color/c4"
+        android:text="Siesta"
         android:textColor="@color/c4"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trabajarCB" />
+        app:layout_constraintTop_toBottomOf="@+id/ocioCB" />
 
     <CheckBox
         android:id="@+id/estudiarCB"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:buttonTint="@color/c4"
+        android:layout_marginStart="16dp"
         android:backgroundTint="@color/Barra"
+        android:buttonTint="@color/c4"
         android:text="Estudiar"
         android:textColor="@color/c4"
         android:textSize="20dp"
@@ -109,12 +98,55 @@
         app:layout_constraintTop_toBottomOf="@+id/deporteCB" />
 
     <CheckBox
+        android:id="@+id/deporteCB"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="@color/Barra"
+        android:buttonTint="@color/c4"
+        android:text="Deporte"
+        android:textColor="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trabajarCB" />
+
+    <CheckBox
+        android:id="@+id/videojuegosCB"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="@color/Barra"
+        android:buttonTint="@color/c4"
+        android:text="Videojuegos"
+        android:textColor="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/estudiarCB" />
+
+    <CheckBox
+        android:id="@+id/gymCB"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/Barra"
+        android:buttonTint="@color/c4"
+        android:text="Gym"
+        android:textColor="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/actividadesTitulo" />
+
+    <CheckBox
         android:id="@+id/vertvCB"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:buttonTint="@color/c4"
+        android:layout_marginEnd="16dp"
         android:backgroundTint="@color/Barra"
+        android:buttonTint="@color/c4"
         android:text="Ver TV"
         android:textColor="@color/c4"
         android:textSize="20dp"
@@ -126,10 +158,10 @@
         android:id="@+id/meditarCB"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="16dp"
         android:backgroundTint="@color/Barra"
-        android:text="Meditar"
         android:buttonTint="@color/c4"
+        android:text="Meditar"
         android:textColor="@color/c4"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -137,27 +169,12 @@
         app:layout_constraintTop_toBottomOf="@+id/vertvCB" />
 
     <CheckBox
-        android:buttonTint="@color/c4"
-        android:id="@+id/gymCB"
-        android:layout_width="175dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:backgroundTint="@color/Barra"
-        android:text="Gym"
-        android:textColor="@color/c4"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/actividadesTitulo" />
-
-    <CheckBox
         android:id="@+id/caminataCB"
         android:layout_width="175dp"
-        android:buttonTint="@color/c4"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="16dp"
         android:backgroundTint="@color/Barra"
+        android:buttonTint="@color/c4"
         android:text="Caminata"
         android:textColor="@color/c4"
         android:textSize="20dp"
@@ -173,7 +190,7 @@
         android:backgroundTint="@color/Barra"
         android:ems="10"
         android:hint="0"
-        android:inputType="time"
+        android:inputType="number"
         android:textColor="@color/Texto"
         android:textColorHint="@color/c4"
         android:textSize="20dp"
@@ -195,7 +212,7 @@
         android:textStyle="bold"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintHorizontal_bias="0.737"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -238,6 +255,7 @@
         android:layout_marginEnd="30dp"
         android:background="@drawable/boton"
         android:text="aceptar"
+        android:onClick="registrarhabitos"
         android:textColor="@color/white"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -250,6 +268,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/volverBtn3"
         android:layout_width="150dp"
+        android:onClick="regresar"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:background="@drawable/boton"
@@ -294,14 +313,14 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Actividades del Dia"
+        android:text="Actividades del día"
         android:textAlignment="viewStart"
         android:textColor="@color/Texto"
         android:textSize="24dp"
         android:textStyle="bold"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.737"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horasTxt" />
 
@@ -309,7 +328,7 @@
         android:id="@+id/sueñoTitulo"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="68dp"
         android:text="Tiempo de sueño"
         android:textAlignment="viewStart"
         android:textColor="@color/Texto"
@@ -317,7 +336,7 @@
         android:textStyle="bold"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintHorizontal_bias="0.737"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horaTitulo" />
 
@@ -338,20 +357,5 @@
         app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sueñoTitulo" />
-
-    <CheckBox
-        android:id="@+id/trabajarCB"
-        android:layout_width="175dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="@color/Barra"
-        android:text="Trabajar"
-        android:textColor="@color/c4"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:buttonTint="@color/c4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/actividadesTitulo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

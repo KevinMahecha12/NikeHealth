@@ -91,8 +91,6 @@ public class Alimentacion extends AppCompatActivity {
                 Toast.makeText(this, "VUELVA AL MENÚ Y REGISTRE SUS DATOS",Toast.LENGTH_SHORT).show();
             }
 
-
-
         }
 
     }

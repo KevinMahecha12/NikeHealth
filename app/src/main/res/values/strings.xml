@@ -11,4 +11,12 @@
     <string name="faltasalud">(Opcional) Falta registrar sus datos acerca de su salud con datos específicos</string>
 
     <string name="Introduccion">Para empezar su diagnóstico inicie el registro de los formularios dando clic en el menú.\n </string>
+    <string name="ingresar">Ingresar</string>
+    <string name="salir">Salir</string>
+    <string name="R">Registrar</string>
+    <string name="txt1">Inicio de sesión</string>
+    <string name="correo">Ingresa correo electrónico</string>
+    <string name="contraseña">Ingresa la contraseña: </string>
+    <string name="guardar">Guardar datos</string>
+
 </resources>

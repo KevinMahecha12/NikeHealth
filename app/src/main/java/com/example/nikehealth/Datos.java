@@ -9,19 +9,24 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.nikehealth.clases.datosclase;
+import com.example.nikehealth.clases.Usuario;
+
+import java.util.ArrayList;
 
 public class Datos extends AppCompatActivity {
 
-    EditText nombre,edad,peso,estatura;
+    EditText nombre,edad,peso,estatura,id;
     RadioButton hombre,mujer;
     datosclase d = new datosclase();
     int genero=0;
+    private ArrayList<Usuario> arrUsuario = new ArrayList<Usuario>(10);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datos);
-
+        id = findViewById(R.id.ID);
         nombre = findViewById(R.id.NOMBRE);
         edad = findViewById(R.id.EDAD);
         hombre = findViewById(R.id.RBHombre);
@@ -70,16 +75,33 @@ public class Datos extends AppCompatActivity {
                 genero = 2;
             }
             Toast.makeText(this, "Se registraron correctamente los datos!",Toast.LENGTH_SHORT).show();
+
+            d.setId(Integer.parseInt(id.getText().toString()));
             d.setNombre(nombre.getText().toString());
             d.setEdad(Integer.parseInt(edad.getText().toString()));
             d.setGenero(genero);
             d.setPeso(Double.parseDouble(peso.getText().toString()));
             d.setEstatura(Double.parseDouble(estatura.getText().toString()));
+
             Intent intent = new Intent(this, Menu.class);
             intent.putExtra("datos",d);
             intent.putExtra("completado",1);
+            intent.putExtra("id",d.getId());
             startActivity(intent);
+
+
+
+            if(arrUsuario!=null && arrUsuario.isEmpty() == false) {
+                arrUsuario = (ArrayList<Usuario>)getIntent().getSerializableExtra("arreglo");
+                Toast.makeText(this, "Ultimo nombre del registro DENTRO: "+ arrUsuario.get(arrUsuario.size()-1).getNombre(), Toast.LENGTH_LONG).show();
+                intent.putExtra("arreglo",arrUsuario);
+                startActivity(intent);
+            }
+
+
+
         }
+
 
     }
     public void regresar(View view) {

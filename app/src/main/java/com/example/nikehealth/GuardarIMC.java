@@ -10,13 +10,16 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.nikehealth.clases.Usuario;
 import com.example.nikehealth.clases.cargarIMC;
 import com.example.nikehealth.clases.datosIMC;
 import com.example.nikehealth.clases.datosclase;
+import com.example.nikehealth.clases.Usuario;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 public class GuardarIMC extends AppCompatActivity {
 
@@ -26,6 +29,7 @@ public class GuardarIMC extends AppCompatActivity {
     cargarIMC ci = new cargarIMC(null);
     String resultadoIMC = null;
     String genero  = null;
+    private ArrayList<Usuario> arrUsuario = new ArrayList<Usuario>(10);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,7 +103,13 @@ public class GuardarIMC extends AppCompatActivity {
             intent = new Intent(getApplicationContext(), Menu.class);
             Toast.makeText(this,"IMC guardado correctamente!", Toast.LENGTH_SHORT).show();
             //Limpiar el componente de texto
+            if(arrUsuario!=null) {
+                intent.putExtra("arreglo",arrUsuario);
+
+                startActivity(intent);
+            }
         }
+
     }
     public void regresarimc(View view) {
         finish();

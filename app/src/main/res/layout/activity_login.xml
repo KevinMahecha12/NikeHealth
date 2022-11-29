@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityLogin">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt1"
+        android:textAlignment="center"
+        android:textColor="@color/COLOR"
+        android:textSize="45dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/BCANCELAR1"
+        android:layout_width="313dp"
+        android:layout_height="82dp"
+        android:background="@drawable/boton"
+        android:onClick="SalirMneu"
+        android:text="@string/salir"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.845" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/BACEPTAR1"
+        android:layout_width="313dp"
+        android:layout_height="82dp"
+        android:onClick="IngresarMenu"
+        android:background="@drawable/boton"
+        android:text="@string/ingresar"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.699" />
+
+    <CheckBox
+        android:id="@+id/DATOS"
+        android:layout_width="345dp"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/c4"
+        android:text="@string/guardar"
+        android:textColor="@color/COLOR"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.469" />
+
+    <EditText
+        android:id="@+id/CONTRASEÑA"
+        android:layout_width="345dp"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/c4"
+        android:ems="10"
+        android:hint="@string/contraseña"
+        android:inputType="textPersonName"
+        android:textColor="@color/COLOR"
+        android:textColorHint="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.379" />
+
+    <EditText
+        android:id="@+id/CORREO"
+        android:layout_width="345dp"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/c4"
+        android:ems="10"
+        android:hint="@string/correo"
+        android:inputType="textPersonName"
+        android:textColor="@color/COLOR"
+        android:textColorHint="@color/c4"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.295" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

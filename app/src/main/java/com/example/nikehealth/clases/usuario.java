@@ -2,16 +2,15 @@ package com.example.nikehealth.clases;
 
 import java.io.Serializable;
 
-public class datosclase implements Serializable {
-    int id;
+public class Usuario implements Serializable {    int id;
     String nombre;
     int edad,genero;
     Double peso,estatura;
 
-    public datosclase() {
+    public Usuario() {
     }
 
-    public datosclase(int id, String nombre, int edad, int genero, Double peso, Double estatura) {
+    public Usuario(int id, String nombre, int edad, int genero, Double peso, Double estatura) {
         this.id = id;
         this.nombre = nombre;
         this.edad = edad;

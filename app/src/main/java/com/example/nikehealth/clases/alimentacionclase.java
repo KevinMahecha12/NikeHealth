@@ -8,8 +8,16 @@ public class alimentacionclase extends datosclase implements Serializable {
     public alimentacionclase() {
     }
 
-    public alimentacionclase(String nombre, int edad, int genero, Double peso, Double estatura, int comidas, int desayunoCalorias, int comidaCalorias, int cenaCalorias, int opcionLitrosAgua) {
-        super(nombre, edad, genero, peso, estatura);
+    public alimentacionclase(int comidas, int desayunoCalorias, int comidaCalorias, int cenaCalorias, int opcionLitrosAgua) {
+        Comidas = comidas;
+        DesayunoCalorias = desayunoCalorias;
+        ComidaCalorias = comidaCalorias;
+        CenaCalorias = cenaCalorias;
+        OpcionLitrosAgua = opcionLitrosAgua;
+    }
+
+    public alimentacionclase(int id, String nombre, int edad, int genero, Double peso, Double estatura, int comidas, int desayunoCalorias, int comidaCalorias, int cenaCalorias, int opcionLitrosAgua) {
+        super(id, nombre, edad, genero, peso, estatura);
         Comidas = comidas;
         DesayunoCalorias = desayunoCalorias;
         ComidaCalorias = comidaCalorias;

@@ -6,6 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".Datos">
 
+    <TextView
+        android:id="@+id/imcTxt2"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:text="Completa los siguientes datos:"
+        android:textAlignment="viewStart"
+        android:textColor="@color/Texto"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/ID"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/Barra"
+        android:ems="10"
+        android:hint="ID_REGISTRO"
+        android:inputType="number"
+        android:textColor="@color/Texto"
+        android:textColorHint="@color/Hint"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.196"
+        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
     <EditText
         android:id="@+id/NOMBRE"
         android:layout_width="350dp"
@@ -20,25 +56,28 @@
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.524"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imcTxt2" />
+        app:layout_constraintTop_toBottomOf="@+id/ID" />
 
-    <TextView
-        android:id="@+id/imcTxt2"
+    <EditText
+        android:id="@+id/EDAD"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
-        android:text="Completa los siguientes datos:"
-        android:textAlignment="viewStart"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/Barra"
+        android:ems="10"
+        android:hint="Edad"
+        android:inputType="number"
         android:textColor="@color/Texto"
+        android:textColorHint="@color/Hint"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/NOMBRE"
+        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/volverBtn"
@@ -91,25 +130,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/grupo"
-        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
-
-    <EditText
-        android:id="@+id/EDAD"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/Barra"
-        android:ems="10"
-        android:hint="Edad"
-        android:inputType="number"
-        android:textColor="@color/Texto"
-        android:textColorHint="@color/Hint"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NOMBRE"
         tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
     <EditText

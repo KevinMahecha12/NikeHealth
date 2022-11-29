@@ -12,8 +12,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.nikehealth.clases.Usuario;
 import com.example.nikehealth.clases.alimentacionclase;
 import com.example.nikehealth.clases.datosclase;
+import com.example.nikehealth.clases.Usuario;
+
+import java.util.ArrayList;
 
 public class Alimentacion extends AppCompatActivity {
 
@@ -24,6 +28,7 @@ public class Alimentacion extends AppCompatActivity {
     private Integer[] arrcomidas = {1,2,3,4,5,6};
     datosclase d = new datosclase();
     alimentacionclase a = new alimentacionclase();
+    private ArrayList<Usuario> arrUsuario = new ArrayList<Usuario>(10);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +86,22 @@ public class Alimentacion extends AppCompatActivity {
             }
             Intent intent = new Intent(this, Menu.class);
             d = (datosclase) getIntent().getSerializableExtra("datos");
+
+
+            arrUsuario = (ArrayList<Usuario>)getIntent().getSerializableExtra("arreglo");
+
+
+            if(arrUsuario!=null && arrUsuario.isEmpty() == false) {
+
+                Toast.makeText(this, "Ultimo nombre del registro : "+ arrUsuario.get(arrUsuario.size()-1).getNombre(), Toast.LENGTH_LONG).show();
+                startActivity(intent);
+            }
+
+            if (arrUsuario != null) {
+                intent.putExtra("arreglo",arrUsuario);
+                startActivity(intent);
+            }
+
             if (d != null) {
                 intent.putExtra("datos",d);
                 intent.putExtra("completado",1);

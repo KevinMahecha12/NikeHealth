@@ -3,6 +3,7 @@ package com.example.nikehealth.clases;
 public class datosIMC {
     String nombre;
     float imc;
+    int Comidas,DesayunoCalorias,ComidaCalorias,CenaCalorias,OpcionLitrosAgua;
 
     public datosIMC() {
     }

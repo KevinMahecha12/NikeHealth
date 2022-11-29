@@ -14,10 +14,10 @@
         android:theme="@style/Theme.NikeHealth"
         tools:targetApi="31">
         <activity
-            android:name=".CargarIMC"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".loadIMC"
+            android:name=".CargarIMC"
             android:exported="false" />
         <activity
             android:name=".GuardarIMC"
@@ -40,8 +40,9 @@
         <activity android:name=".Datos" />
         <activity android:name=".Alimentacion" />
         <activity android:name=".atencionsalud" />
+        <activity android:name=".Menu" />
         <activity
-            android:name=".Menu"
+            android:name=".ActivityLogin"
             android:exported="true"
             android:label="NikeHealth">
             <intent-filter>

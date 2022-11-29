@@ -7,16 +7,19 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.nikehealth.clases.Usuario;
 import com.example.nikehealth.clases.datosclase;
+import com.example.nikehealth.clases.Usuario;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class CargarIMC extends AppCompatActivity {
 
     TextView imccargar;
-
+    private ArrayList<Usuario> arrUsuario = new ArrayList<Usuario>(10);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

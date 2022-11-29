@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.Toast;
 
 import com.example.nikehealth.clases.alimentacionclase;
 import com.example.nikehealth.clases.atencionsaludclase;
 import com.example.nikehealth.clases.datosclase;
 import com.example.nikehealth.clases.habitosclase;
+
 
 public class atencionsalud extends AppCompatActivity {
 
@@ -63,6 +65,8 @@ public class atencionsalud extends AppCompatActivity {
             d = (datosclase) getIntent().getSerializableExtra("datos");
             a = (alimentacionclase) getIntent().getSerializableExtra("alimentacion");
             h = (habitosclase) getIntent().getSerializableExtra("habitos");
+
+
 
             if (d != null) {
                 intent.putExtra("datos",d);

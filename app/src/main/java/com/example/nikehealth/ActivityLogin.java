@@ -37,13 +37,13 @@ public class ActivityLogin extends AppCompatActivity {
         usr.setContraseña(contraseña.getText().toString());
         usr.setRegistrado(true);
         String nombre="kevinmahecha@outlook.com",contraseña="12345";
-        String nombre1="kevinmahecha@outlook.com",contraseña1="12345";
-        String nombre2="kevinmahecha@outlook.com",contraseña2="12345";
+        String nombre1="erick@outlook.com",contraseña1="123";
+        String nombre2="kaleb@outlook.com",contraseña2="123";
+        String admin="admin",contra="123";
 
-        Toast.makeText(this,"Contra : "+usr.getContraseña(),Toast.LENGTH_SHORT).show();
 
         if (usr.getCorreo().equals(nombre) && usr.getContraseña().equals(contraseña) || usr.getCorreo().equals(nombre1) && usr.getContraseña().equals(contraseña1)
-        || usr.getCorreo().equals(nombre2) && usr.getContraseña().equals(contraseña2)) {
+        || usr.getCorreo().equals(nombre2) && usr.getContraseña().equals(contraseña2) || usr.getCorreo().equals(admin) && usr.getContraseña().equals(contra)) {
             if(guardar.isChecked()) {
                 guardarPreferenccias(usr);
                 Intent intent = new Intent(this,MainActivity.class);
@@ -72,6 +72,7 @@ public class ActivityLogin extends AppCompatActivity {
 
     }
     public void SalirMneu(View view){
-        finish();
+        this.finish();
+        System.exit(0);
     }
 }

@@ -2,6 +2,7 @@ package com.example.nikehealth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.browse.MediaBrowser;
@@ -42,8 +43,8 @@ public class ActivityLogin extends AppCompatActivity {
         String admin="admin",contra="123";
 
 
-        if (usr.getCorreo().equals(nombre) && usr.getContraseña().equals(contraseña) || usr.getCorreo().equals(nombre1) && usr.getContraseña().equals(contraseña1)
-        || usr.getCorreo().equals(nombre2) && usr.getContraseña().equals(contraseña2) || usr.getCorreo().equals(admin) && usr.getContraseña().equals(contra)) {
+        if (usr.getCorreo().trim().equals(nombre) && usr.getContraseña().equals(contraseña) || usr.getCorreo().trim().equals(nombre1) && usr.getContraseña().equals(contraseña1)
+        || usr.getCorreo().trim().equals(nombre2) && usr.getContraseña().equals(contraseña2) || usr.getCorreo().trim().equals(admin) && usr.getContraseña().equals(contra)) {
             if(guardar.isChecked()) {
                 guardarPreferenccias(usr);
                 Intent intent = new Intent(this,MainActivity.class);
@@ -72,7 +73,8 @@ public class ActivityLogin extends AppCompatActivity {
 
     }
     public void SalirMneu(View view){
-        this.finish();
+        finishAndRemoveTask();
+        finishAffinity();
         System.exit(0);
     }
 }

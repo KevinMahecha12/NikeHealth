@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,7 +28,7 @@ import java.util.List;
 
 public class GuardarIMC extends AppCompatActivity {
 
-    TextView imcserial;
+    Button guardar;
     datosclase dat = new datosclase();
     datosIMC di = new datosIMC();
     cargarIMC ci = new cargarIMC(null);
@@ -43,6 +44,7 @@ public class GuardarIMC extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guardar_imc);
 
+        guardar = findViewById(R.id.GUARDAR);
         re = findViewById(R.id.RECYCLER);
         re.setLayoutManager(new LinearLayoutManager(this));
         id = findViewById(R.id.ID);
@@ -112,6 +114,7 @@ public class GuardarIMC extends AppCompatActivity {
                     if (Integer.parseInt(id.getText().toString()) == (arrUsuario.get(i).getId())) {
                         y = i;
                         encontrado = true;
+                        guardar.setText("Se guardará el ID: "+arrUsuario.get(i).getId());
                         int x = 2; // poner punto despues de x digito
                         BigDecimal unscaled = new BigDecimal(arrUsuario.get(y).getEstatura());
                         BigDecimal scaled = unscaled.scaleByPowerOfTen(-x);
@@ -153,6 +156,7 @@ public class GuardarIMC extends AppCompatActivity {
                                 "\n\n" + "Peso: " + arrUsuario.get(y).getPeso() + "kg" + "." + "\n\n" + "Estatura: " + arrUsuario.get(y).getEstatura() + "cm" + "." + "\n\n" + resultadoIMC + "." + "\n\n");
                         adaptadorimc adaptadorimc = new adaptadorimc(ListDatos);
                         re.setAdapter(adaptadorimc);
+
 
                     }
 

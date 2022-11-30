@@ -178,7 +178,7 @@ public void Buscar (View view) {
     String horadormir = null;
     String ocio = null;
 
-    if(arrUsuario == null) {
+    if(arrUsuario.isEmpty()) {
         Toast.makeText(this, "¡Registre usuarios primero!", Toast.LENGTH_LONG).show();
     } else {
         arrUsuario = (ArrayList<Usuario>)getIntent().getSerializableExtra("arreglo");

@@ -149,7 +149,7 @@ public class GuardarIMC extends AppCompatActivity {
                         ci.setDatosIMC("Nombre: " + arrUsuario.get(y).getNombre() + "." + "\n\n" + "Edad: " + arrUsuario.get(y).getEdad() + "." + "\n\n" + genero + "." +
                                 "\n\n" + "Peso: " + arrUsuario.get(y).getPeso() + "kg" + "." + "\n\n" + "Estatura: " + arrUsuario.get(y).getEstatura() + "cm" + "." + "\n\n" + resultadoIMC + ".");
 
-                        ListDatos.add("Nombre: " + arrUsuario.get(y).getNombre() + "." + "\n\n" + "Edad: " + arrUsuario.get(y).getEdad() + "." + "\n\n" + genero + "." +
+                        ListDatos.add("ID: "+arrUsuario.get(y).getId() + "\n\n" +"Nombre: " + arrUsuario.get(y).getNombre() + "." + "\n\n" + "Edad: " + arrUsuario.get(y).getEdad() + "." + "\n\n" + genero + "." +
                                 "\n\n" + "Peso: " + arrUsuario.get(y).getPeso() + "kg" + "." + "\n\n" + "Estatura: " + arrUsuario.get(y).getEstatura() + "cm" + "." + "\n\n" + resultadoIMC + "." + "\n\n");
                         adaptadorimc adaptadorimc = new adaptadorimc(ListDatos);
                         re.setAdapter(adaptadorimc);
@@ -160,7 +160,7 @@ public class GuardarIMC extends AppCompatActivity {
                 if (encontrado == false) {
                     Toast.makeText(this, "¡No se encontró ningun registro de usuario que coincida con ese ID!", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(this, "El indice de esta busqueda es : " + arrUsuario.indexOf(arrUsuario.get(y)), Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Se encontró a " + arrUsuario.get(y).getNombre(), Toast.LENGTH_SHORT).show();
                 }
             }
 

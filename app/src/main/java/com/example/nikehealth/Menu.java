@@ -499,7 +499,7 @@ public void Buscar (View view) {
             if (encontrado == false) {
                 Toast.makeText(this, "¡No se encontró ningun registro de usuario que coincida con ese ID!", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(this, "El indice de esta busqueda es : " + arrUsuario.indexOf(arrUsuario.get(y)), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Se cargarón datos del usuario: " + arrUsuario.get(y).getNombre() + ", con ID: "+ arrUsuario.get(y).getId(), Toast.LENGTH_LONG).show();
             }
         }
 

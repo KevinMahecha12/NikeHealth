@@ -66,112 +66,139 @@ public class Habitos extends AppCompatActivity {
         if(trabajar.isChecked()==false && gym.isChecked() == false && deporte.isChecked() == false && caminata.isChecked() == false
                 && estudiar.isChecked()==false && vertv.isChecked() == false && videojuegos.isChecked() == false && meditar.isChecked() == false) {
             Toast.makeText(this, "Seleccione minimo 1 actividad que hace al día!",Toast.LENGTH_SHORT).show();
-        }
+        } else {
 
-   if(horadormir.getText().toString().trim().isEmpty() || horasueño.getText().toString().trim().isEmpty()) {
 
-       if (horadormir.getText().toString().trim().isEmpty()) {
 
-           horadormir.setError("Rellene la hora para continuar");
-           horadormir.requestFocus();
+            if(horadormir.getText().toString().trim().isEmpty() || horasueño.getText().toString().trim().isEmpty()) {
 
-       }
-       if (horasueño.getText().toString().trim().isEmpty()) {
+                if (horadormir.getText().toString().trim().isEmpty()) {
 
-           horasueño.setError("Rellene la hora para continuar");
-           horasueño.requestFocus();
+                    horadormir.setError("Rellene la hora para continuar");
+                    horadormir.requestFocus();
 
-       }
+                }
+                if (horasueño.getText().toString().trim().isEmpty()) {
 
-       if(vertv.isChecked()) {
-           ocio.setChecked(true);
-       }
-       if(videojuegos.isChecked()) {
-           ocio.setChecked(true);
-       }
-   }else {
+                    horasueño.setError("Rellene la hora para continuar");
+                    horasueño.requestFocus();
 
-       if (ocio.isChecked() == true) {
-           if (tiempoocio.getText().toString().trim().isEmpty()) {
+                }
 
-               tiempoocio.setError("Rellene el tiempo para continuar");
-               tiempoocio.requestFocus();
+                if(vertv.isChecked()) {
+                    ocio.setChecked(true);
+                }
+                if(videojuegos.isChecked()) {
+                    ocio.setChecked(true);
+                }
+            }else {
 
-           } else {
-               h.setTiempoOcio(Integer.parseInt(tiempoocio.getText().toString()));
-           }
+                if (ocio.isChecked() == true) {
+                    if (tiempoocio.getText().toString().trim().isEmpty()) {
 
-       }
+                        tiempoocio.setError("Rellene el tiempo para continuar");
+                        tiempoocio.requestFocus();
 
-       if(siesta.isChecked() == true) {
-           if (tiemposiesta.getText().toString().trim().isEmpty()) {
+                    } else {
+                        h.setTiempoOcio(Integer.parseInt(tiempoocio.getText().toString()));
+                    }
 
-               tiemposiesta.setError("Rellene el tiempo para continuar");
-               tiemposiesta.requestFocus();
+                }
 
-           } else {
-               h.setTiempoSiesta(Integer.parseInt(tiemposiesta.getText().toString()));
-           }
-       }
+                if(siesta.isChecked() == true) {
+                    if (Integer.parseInt(tiemposiesta.getText().toString().trim()) == 0) {
 
-       if(trabajar.isChecked()) {
-           h.setTrabajo(1);
-       }
-       if(gym.isChecked()) {
-           h.setSalud(1);
-       }
-       if(deporte.isChecked()) {
-           h.setSalud(1);
-       }
-       if(caminata.isChecked()) {
-           h.setSalud(1);
-       }
-       if(estudiar.isChecked()) {
-           h.setTrabajo(1);
-       }
-       if(vertv.isChecked()) {
-           h.setOcio(1);
-       }
-       if(videojuegos.isChecked()) {
-           h.setOcio(1);
-       }
-       if(meditar.isChecked()) {
-           h.setSalud(1);
-       }
+                        tiemposiesta.setError("Rellene el tiempo para continuar");
+                        tiemposiesta.requestFocus();
 
-       if(diasemana.getSelectedItem().toString().equals("Lunes-Viernes")) {
-           h.setDiaSemana(1);
-       }
-       if(diasemana.getSelectedItem().toString().equals("Sabado-Domingo")) {
-           h.setDiaSemana(2);
-       }
+                    } else {
+                        h.setTiempoSiesta(Integer.parseInt(tiemposiesta.getText().toString()));
+                    }
+                }
 
-        h.setHoraDormir(Integer.parseInt(horadormir.getText().toString()));
-        h.setTiempoSueño(Integer.parseInt(horasueño.getText().toString()));
 
-       Intent intent = new Intent(this, Menu.class);
-       arrUsuario = (ArrayList<Usuario>)getIntent().getSerializableExtra("arreglo");
 
-       intent.putExtra("habitos",h);
-       intent.putExtra("completado3",1);
-       intent.putExtra("arreglo",arrUsuario);
-       startActivity(intent);
+                if(trabajar.isChecked()) {
+                    h.setTrabajo(1);
+                }
+                if(gym.isChecked()) {
+                    h.setSalud(1);
+                }
+                if(deporte.isChecked()) {
+                    h.setSalud(1);
+                }
+                if(caminata.isChecked()) {
+                    h.setSalud(1);
+                }
+                if(estudiar.isChecked()) {
+                    h.setTrabajo(1);
+                }
+                if(vertv.isChecked()) {
+                    h.setOcio(1);
+                }
+                if(videojuegos.isChecked()) {
+                    h.setOcio(1);
+                }
+                if(meditar.isChecked()) {
+                    h.setSalud(1);
+                }
 
-       d = (datosclase) getIntent().getSerializableExtra("datos");
-       a = (alimentacionclase) getIntent().getSerializableExtra("alimentacion");
+                if(diasemana.getSelectedItem().toString().equals("Lunes-Viernes")) {
+                    h.setDiaSemana(1);
+                }
+                if(diasemana.getSelectedItem().toString().equals("Sabado-Domingo")) {
+                    h.setDiaSemana(2);
+                }
 
-       if (d != null) {
-           intent.putExtra("datos",d);
-           intent.putExtra("completado",1);
-           startActivity(intent);
-       }
+                h.setHoraDormir(Integer.parseInt(horadormir.getText().toString()));
+                h.setTiempoSueño(Integer.parseInt(horasueño.getText().toString()));
 
-       if (a != null) {
-           intent.putExtra("alimentacion",a);
-           intent.putExtra("completado2",1);
+                Intent intent = new Intent(this, Menu.class);
+                arrUsuario = (ArrayList<Usuario>)getIntent().getSerializableExtra("arreglo");
 
-           startActivity(intent);
-       }
+
+                if (ocio.isChecked()) {
+
+                    if ( Integer.parseInt(tiempoocio.getText().toString() )== 0) {
+                        tiempoocio.setError("Rellene el tiempo de ocio!");
+                        tiempoocio.setFocusable(true);
+                        Toast.makeText(this, "Rellene el tiempo de ocioooooo",Toast.LENGTH_SHORT).show();
+                    }
+
+                } else  {
+                    h.setOcio(0);
+                }
+
+                d = (datosclase) getIntent().getSerializableExtra("datos");
+                a = (alimentacionclase) getIntent().getSerializableExtra("alimentacion");
+
+                if (d != null) {
+                    intent.putExtra("datos",d);
+                    intent.putExtra("completado",1);
+                    intent.putExtra("habitos",h);
+                    intent.putExtra("completado3",1);
+                    intent.putExtra("arreglo",arrUsuario);
+                    startActivity(intent);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(this, "VUELVA AL MENÚ Y REGISTRE SUS DATOS",Toast.LENGTH_SHORT).show();
+                }
+
+                if (a != null) {
+                    intent.putExtra("alimentacion",a);
+                    intent.putExtra("completado2",1);
+
+                    startActivity(intent);
+                }
+
+
+
+
+
+
+
+            }
+
 
 
 

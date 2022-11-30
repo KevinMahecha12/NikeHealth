@@ -5,12 +5,12 @@
     <string name="habitos">Hábitos</string>
     <string name="salud">Salud</string>
 
-    <string name="faltadatos">Falta registrar sus datos generales</string>
-    <string name="faltaalimentacion">Falta registrar sus datos alimenticios</string>
-    <string name="faltahabitos">Falta registrar sus hábitos y actividades</string>
+    <string name="faltadatos">1.- Falta registrar sus datos generales</string>
+    <string name="faltaalimentacion">2.- Falta registrar sus datos alimenticios</string>
+    <string name="faltahabitos">3.- Falta registrar sus hábitos y actividades</string>
     <string name="faltasalud">(Opcional) Falta registrar sus datos acerca de su salud con datos específicos</string>
 
-    <string name="Introduccion">Para empezar su diagnóstico inicie el registro de los formularios dando clic en el menú.\n </string>
+    <string name="Introduccion">Para empezar su diagnóstico inicie el registro de los formularios dando clic en el menú en el orden que estan los números.\n </string>
     <string name="ingresar">Ingresar</string>
     <string name="salir">Salir</string>
     <string name="R">Registrar</string>

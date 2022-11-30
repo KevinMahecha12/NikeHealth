@@ -65,6 +65,12 @@ public class Datos extends AppCompatActivity {
                 estatura.requestFocus();
 
             }
+            if (id.getText().toString().trim().isEmpty()) {
+
+                estatura.setError("Rellene el ID para continuar");
+                estatura.requestFocus();
+
+            }
 
         } else {
 
@@ -74,7 +80,7 @@ public class Datos extends AppCompatActivity {
             if (mujer.isChecked()) {
                 genero = 2;
             }
-            Toast.makeText(this, "Se registraron correctamente los datos!",Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this, "Se registraron correctamente los datos!",Toast.LENGTH_SHORT).show();
 
             d.setId(Integer.parseInt(id.getText().toString()));
             d.setNombre(nombre.getText().toString());
@@ -87,21 +93,12 @@ public class Datos extends AppCompatActivity {
             intent.putExtra("datos",d);
             intent.putExtra("completado",1);
             intent.putExtra("id",d.getId());
+            arrUsuario = (ArrayList<Usuario>)getIntent().getSerializableExtra("arreglo");
+            intent.putExtra("arreglo",arrUsuario);
             startActivity(intent);
 
 
-
-            if(arrUsuario!=null && arrUsuario.isEmpty() == false) {
-                arrUsuario = (ArrayList<Usuario>)getIntent().getSerializableExtra("arreglo");
-                Toast.makeText(this, "Ultimo nombre del registro DENTRO: "+ arrUsuario.get(arrUsuario.size()-1).getNombre(), Toast.LENGTH_LONG).show();
-                intent.putExtra("arreglo",arrUsuario);
-                startActivity(intent);
-            }
-
-
-
         }
-
 
     }
     public void regresar(View view) {

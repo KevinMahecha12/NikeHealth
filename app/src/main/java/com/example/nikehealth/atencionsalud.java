@@ -8,10 +8,13 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
+import com.example.nikehealth.clases.Usuario;
 import com.example.nikehealth.clases.alimentacionclase;
 import com.example.nikehealth.clases.atencionsaludclase;
 import com.example.nikehealth.clases.datosclase;
 import com.example.nikehealth.clases.habitosclase;
+
+import java.util.ArrayList;
 
 
 public class atencionsalud extends AppCompatActivity {
@@ -22,7 +25,7 @@ public class atencionsalud extends AppCompatActivity {
     alimentacionclase a = new alimentacionclase();
     habitosclase  h = new habitosclase();
     atencionsaludclase as = new atencionsaludclase();
-
+    private ArrayList<Usuario> arrUsuario = new ArrayList<Usuario>(10);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +60,8 @@ public class atencionsalud extends AppCompatActivity {
 
 
             Intent intent = new Intent(this, Menu.class);
-
+            arrUsuario = (ArrayList<Usuario>)getIntent().getSerializableExtra("arreglo");
+            intent.putExtra("arreglo",arrUsuario);
             intent.putExtra("atencion",as);
             intent.putExtra("completado4",1);
             startActivity(intent);

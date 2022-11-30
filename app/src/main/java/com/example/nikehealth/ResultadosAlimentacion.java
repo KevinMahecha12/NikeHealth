@@ -32,7 +32,7 @@ public class ResultadosAlimentacion extends AppCompatActivity {
         }
         if (contador == 2 || entrecomidas == 2 && agua == 1 ) {
             l.setAnimation(R.raw.caloriasmalas);
-            res.setText("Tu ingesta de calorias es muy alta! "+"\n\n\n"+"Sólo por estar vivos, gastamos energía. A este consumo se le conoce como metabolismo basal.\n" +
+            res.setText("Sólo por estar vivos, gastamos energía. A este consumo se le conoce como metabolismo basal.\n" +
                     "\n" +
                     "Este término hace referencia al número de calorías que gastamos en funciones fisiológicas como respirar, comer, dormir, además de todas las acciones que realizan nuestros órganos internos. Es decir, son las calorías que consumimos en reposo.\n" +
                     "\n" +

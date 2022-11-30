@@ -37,6 +37,10 @@ public class ResultadosHabitos extends AppCompatActivity {
             l.setAnimation(R.raw.todobien);
             res.setText("Usted esta sano!, sus hábitos parecen estar en orden!");
         }
+        if (problemaocio == 1){
+            l.setAnimation(R.raw.estres);
+            res.setText("\"El tiempo es el bien más preciado. Una queja muy común de la gente en nuestros días es la de estar demasiado ocupado y de necesitar más tiempo\", cuenta Marissa Sharif profesora asistente de marketing en la Escuela de Negocios Wharton de Filadelfiay autora principal de un artículo que se publica esta semana en la revista Journal of Personality and Social Psychology. \"Pero, ¿tener más tiempo está realmente relacionado con una mayor felicidad?, plantea a modo de pregunta que ella misma responde. \"Descubrimos que tener una escasez de horas discrecionales durante el día resulta en un mayor estrés y un menor bienestar subjetivo\", continúa. \"Sin embargo, aunque tener poco tiempo es malo, tener más tiempo no siempre es mejor\". Se trata de una de las principales conclusiones del estudio que bajo el titulo Having Too Little or Too Much Time Is Linked to Lower Subjective Well-Being,indaga en las consecuencias del exceso de ociosidad.");
+        }
         if(durmiobien == 2) {
             l.setAnimation(R.raw.dormir);
             res.setText("La falta de sueño puede afectar tu sistema inmunitario. Se ha demostrado en estudios que las personas que no tienen horas de sueño de calidad o suficientes horas de sueño tienen más probabilidades de enfermarse tras estar expuestas a un virus, tal como un virus de resfrío común. La falta de sueño también puede afectar la velocidad a la que te recuperas si te enfermas.\n" +

@@ -2,6 +2,7 @@ package com.example.nikehealth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -65,6 +66,7 @@ public class CargarIMC extends AppCompatActivity {
 
                 //Se coloca() la informacion del archivo en el componente Multiline text
                 imccargar.setText(textoLeido);
+
             }
             catch (IOException e)
             {
@@ -90,6 +92,9 @@ public class CargarIMC extends AppCompatActivity {
         return false;
     }
     public void regresarimc(View view) {
-        finish();
+        Intent intent = new Intent(this, Menu.class);
+        arrUsuario = (ArrayList<Usuario>)getIntent().getSerializableExtra("arreglo");
+        intent.putExtra("arreglo",arrUsuario);
+        startActivity(intent);
     }
 }

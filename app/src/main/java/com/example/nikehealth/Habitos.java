@@ -114,8 +114,6 @@ public class Habitos extends AppCompatActivity {
            }
        }
 
-
-
        if(trabajar.isChecked()) {
            h.setTrabajo(1);
        }
@@ -152,27 +150,15 @@ public class Habitos extends AppCompatActivity {
         h.setTiempoSueño(Integer.parseInt(horasueño.getText().toString()));
 
        Intent intent = new Intent(this, Menu.class);
+       arrUsuario = (ArrayList<Usuario>)getIntent().getSerializableExtra("arreglo");
 
        intent.putExtra("habitos",h);
        intent.putExtra("completado3",1);
+       intent.putExtra("arreglo",arrUsuario);
        startActivity(intent);
 
        d = (datosclase) getIntent().getSerializableExtra("datos");
        a = (alimentacionclase) getIntent().getSerializableExtra("alimentacion");
-
-       arrUsuario = (ArrayList<Usuario>)getIntent().getSerializableExtra("arreglo");
-
-
-       if(arrUsuario!=null && arrUsuario.isEmpty() == false) {
-
-           Toast.makeText(this, "Ultimo nombre del registro : "+ arrUsuario.get(arrUsuario.size()-1).getNombre(), Toast.LENGTH_LONG).show();
-           startActivity(intent);
-       }
-
-       if (arrUsuario != null) {
-           intent.putExtra("arreglo",arrUsuario);
-           startActivity(intent);
-       }
 
        if (d != null) {
            intent.putExtra("datos",d);

@@ -11,21 +11,15 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-
 import com.example.nikehealth.clases.Usuario;
 import com.example.nikehealth.clases.alimentacionclase;
 import com.example.nikehealth.clases.atencionsaludclase;
 import com.example.nikehealth.clases.datosclase;
 import com.example.nikehealth.clases.habitosclase;
-import com.example.nikehealth.clases.Usuario;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Menu extends AppCompatActivity {
 
@@ -67,19 +61,10 @@ public class Menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diagnostico);
 
-
-
-
-
-
-
         dat = (datosclase) getIntent().getSerializableExtra("datos");
         alim = (alimentacionclase) getIntent().getSerializableExtra("alimentacion");
         hab = (habitosclase) getIntent().getSerializableExtra("habitos");
         as = (atencionsaludclase) getIntent().getSerializableExtra("atencion");
-
-
-
 
         titulo = findViewById(R.id.TITULO);
         inicio = findViewById(R.id.iniciodiagnostico);
@@ -90,32 +75,12 @@ public class Menu extends AppCompatActivity {
         id = findViewById(R.id.ID);
         ly = findViewById(R.id.LAYOUTUSADO);
 
-
-
-
-            if (dat != null) {
+        if (dat != null) {
                 contador = (int) getIntent().getSerializableExtra("completado");
                 ID_CAPTADO++;
-
-
                 if (contador == 1) {
-                    general++;
-                    titulo.setText("Su diagnóstico ");
-                    inicio.setText("Si sus registros se muestran en color NARANJA o ROJO puede dar clic en ellos para ver mas" +
-                            " información de su advertencia.");
                     resDatos.setBackground(ContextCompat.getDrawable(this, R.drawable.vineta));
-                    x++;
-
-                    if (x<tamañoarray) {
-                        arrUsuario.add(x, new  Usuario(dat.getId(),dat.getNombre(),dat.getEdad(),dat.getGenero(),dat.getPeso(),dat.getEstatura())
-                        );
-
-                        Toast.makeText(this,"¡Se ha agregado exitosamente 1 IMC ! | Existentes : " + contadorarray++,Toast.LENGTH_SHORT).show();
-                        registro = true;
-                    }
-                    if (x == tamañoarray) {
-                        Toast.makeText(this,"¡Se llego al limite los diagnosticos registrados permitidos por registrar!",Toast.LENGTH_LONG).show();
-                    }
+                    resDatos.setText("Datos generales registrados!");
                 }
         }
         if (alim != null) {
@@ -123,243 +88,40 @@ public class Menu extends AppCompatActivity {
             if (contador2 == 1) {
 
                 resAlimentos.setBackground(ContextCompat.getDrawable(this, R.drawable.vineta));
-                float caloriastotales = 0;
-                if (alim.getOpcionLitrosAgua() == 1) {
-                    agua = "Consumo de agua al día: 1-2L";
-                    aguanormal = false;
-                }
-                if (alim.getOpcionLitrosAgua() == 2) {
-                    aguanormal = true;
-                    agua = "Consumo de agua al día: 2-3L";
-                }
-                if (alim.getOpcionLitrosAgua() == 3) {
-                    aguanormal = true;
-                    aguanormal = false;
-                    agua = "Consumo de agua al día: +3L";
-                }
-                if (dat.getEdad()>=14 && alim.getOpcionLitrosAgua() == 1) {
-                    aguanormal = false;
-                    resAlimentos.setClickable(true);
-                    resAlimentos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
-                    agua = "Consumo de agua al día: 1-2L, para tu edad, deberias consumir mas agua!";
-                }
-                if(alim.getOpcionLitrosAgua() == 3) {
-                    agua = "Consumo de agua al día: 1-2L, evita tomar mas de 3L de agua al día, pues puede ser dañino";
-                }
-                caloriastotales = alim.getDesayunoCalorias()+alim.getComidaCalorias()+alim.getCenaCalorias();
-
-                if(dat.getGenero() == 1 && caloriastotales >=2000 && caloriastotales <=2500) {
-                    resAlimentos.setClickable(true);
-                    ingestanormal = true;
-                    ingesta = "Su ingesta de calorías es saludable!, su total es : " +caloriastotales;
-                }
-                if(caloriastotales <1590) {
-                    ingestanormal = false;
-                    resAlimentos.setClickable(true);
-                    resAlimentos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
-                    ingesta = "Su ingesta de calorías es muy baja!, su total es : " +caloriastotales;
-                }
-                if(caloriastotales >2600) {
-                    ingestanormal = false;
-                    resAlimentos.setClickable(true);
-                    resAlimentos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
-                    ingesta = "Su ingesta de calorías es muy alta!, su total es : " +caloriastotales;
-                }
-                if(alim.getGenero() == 2 && caloriastotales >=1590 && caloriastotales <=2000) {
-                    ingestanormal = true;
-                    resAlimentos.setClickable(true);
-                    ingesta = "Su ingesta de calorías es saludable!, su total es : " +caloriastotales;
-                }
-
-                if (alim.getComidas() <=3) {
-                    entrecomidasnormal = true;
-                    resAlimentos.setClickable(true);
-                    entrecomidas = "Veces que come entre comidas: "+alim.getComidas();
-                }
-                if (alim.getComidas() >3) {
-                    entrecomidasnormal = false;
-                    resAlimentos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
-                    resAlimentos.setClickable(true);
-                    entrecomidas = "Veces que come entre comidas: "+alim.getComidas() +", come bastante entre comidas, lo cual no es recomendable!";
-                }
-
-                resAlimentos.setText(entrecomidas+"."+"\n\n"+
-                        "Calorías por desayuno: "+alim.getDesayunoCalorias()+"."+"\n\n"+
-                        "Calorías por comida: "+alim.getComidaCalorias()+"."+"\n\n"+
-                        "Calorías por cena: "+alim.getCenaCalorias()+"."+"\n\n"+agua +"."+"\n\n"+
-                        ingesta+".");
+                resAlimentos.setText("Datos de alimentación registrados!");
             }
         }
-
-        String habitos = null;
         if (hab != null) {
             contador3 = (int) getIntent().getSerializableExtra("completado3");
             if (contador3 == 1) {
                 resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.vineta));
-                String dia = null;
-                String siestas = null;
-                String sueño = null;
-                String horadormir = null;
-                String ocio = null;
+                resHabitos.setText("Datos de hábitos registrados!");
+                general++;
+                titulo.setText("Su diagnóstico ");
+                inicio.setText("Si sus registros se muestran en color NARANJA o ROJO puede dar clic en ellos para ver mas" + " información de su advertencia.");
+                x++;
 
-                if (hab.getTiempoSiesta() == 0 && hab.getTiempoOcio() >= 8) {
-                    resHabitos.setClickable(true);
+                if (x<tamañoarray) {
 
-                    TIENESIESTAS = 2;
-                    TIENEOCIO = 1;
-                    tienesiestas = false;
-                    tieneocio = true;
-                    siestas = "Usted no suele tener siestas y tiene mucho tiempo de ocio, lo cual puede afectar a su salud!";
-                    resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                    arrUsuario = (ArrayList<Usuario>)getIntent().getSerializableExtra("arreglo");
+                    arrUsuario.add(x, new  Usuario(dat.getId(),dat.getNombre(),dat.getEdad(),dat.getGenero(),dat.getPeso(),dat.getEstatura(),alim.getComidas(),alim.getDesayunoCalorias(),
+                            alim.getComidaCalorias(),alim.getCenaCalorias(),alim.getOpcionLitrosAgua(),hab.getDiaSemana(),hab.getHoraDormir(),hab.getTiempoSueño(),
+                            hab.getOcio(),hab.getSalud(),hab.getTrabajo(),hab.getTiempoOcio(),hab.getTiempoSiesta())
+                    );
+                    registro = true;
                 }
-                if (hab.getTiempoSiesta() == 0) {
-                    resHabitos.setClickable(true);
-
-                    TIENESIESTAS = 2;
-                    tienesiestas = false;
-                    siestas = "Usted no suele tener siestas, considere tener un mínimo de 30 minutos si tiene mucho trabajo!";
+                if (x == tamañoarray) {
+                    Toast.makeText(this,"¡Se llego al limite los diagnosticos registrados permitidos por registrar!",Toast.LENGTH_LONG).show();
                 }
-                if (hab.getTiempoSiesta() >= 1) {
-                    resHabitos.setClickable(true);
-                    tienesiestas = true;
-                    TIENESIESTAS = 1;
-
-                    siestas = "Usted suele tomar siestas de: " + hab.getTiempoSiesta() + "HR(S) , si trabaja mucho, considere mantener este tiempo para descanar!";
-                }
-                if (hab.getTiempoSueño() <= 7) {
-                    resHabitos.setClickable(true);
-                    duermebien = false;
-                    DURMIOBIEN = 2;
-
-                    sueño = "Usted suele dormir : " + hab.getTiempoSueño() + " HR(S), lo cual es poco, considere dormir más!";
-                    resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
-                }
-                if (hab.getTiempoSueño() >= 8) {
-                    resHabitos.setClickable(true);
-                    duermebien = true;
-                    DURMIOBIEN = 1;
-
-                    sueño = "Usted suele dormir : " + hab.getTiempoSueño() + " HR(S), lo cual es considerado lo suficiente para tener buen descanso!";
-                }
-
-                if (hab.getHoraDormir() >= 11) {
-                    resHabitos.setClickable(true);
-                    seacuestatemprano = false;
-                    SEACUESTATEMPRANO = 2;
-
-                    horadormir = "Usted suele dormirse a las : " + hab.getHoraDormir() + ", lo cual es bastante tarde y no recomendable!";
-                    resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
-                }
-                if (hab.getHoraDormir() < 11) {
-                    resHabitos.setClickable(true);
-
-                    SEACUESTATEMPRANO = 1;
-                    seacuestatemprano = true;
-                    horadormir = "Usted suele dormirse a las : " + hab.getHoraDormir() + ", lo cual es temprano y saludable!";
-                }
-
-
-                if (hab.getDiaSemana() == 1) {
-                    resHabitos.setClickable(true);
-
-                    dia = "Dias en los que suele realizar las actividades registradas: Lunes a Viernes";
-                }
-                if (hab.getDiaSemana() == 2) {
-                    resHabitos.setClickable(true);
-
-                    dia = "Dias en los que suele realizar las actividades registradas: Sabado a Domingo";
-                }
-
-                if (hab.getOcio() == 1 && hab.getSalud() == 1 && hab.getTrabajo() == 1) {
-                    resHabitos.setClickable(true);
-
-                    EQUILIBRIO = 1;
-
-                    habitos = "Sus hábitos en sus actividades destacan en : Ocio,Salud y Trabajo ó Esutudio";
-                }
-                if (hab.getOcio() == 1 && hab.getSalud() == 0 && hab.getTrabajo() == 0) {
-                    resHabitos.setClickable(true);
-
-                    tienesalud = false;
-                    PROBLEMASALUD = 1;
-                    tienesalud = false;
-
-                    habitos = "Sus hábitos en sus actividades destacan en : Ocio " + "\n" + " Nota: intente dedicarle tiempo a su salud!";
-                    resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
-                }
-                if (hab.getOcio() == 1 && hab.getSalud() == 1 && hab.getTrabajo() == 0) {
-                    resHabitos.setClickable(true);
-
-                    EQUILIBRIO = 1;
-
-                    habitos = "Sus hábitos en sus actividades destacan en : Ocio y Salud";
-                }
-                if (hab.getOcio() == 0 && hab.getSalud() == 1 && hab.getTrabajo() == 0) {
-                    resHabitos.setClickable(true);
-
-                    EQUILIBRIO = 1;
-
-                    habitos = "Sus hábitos en sus actividades destacan en : Salud";
-                }
-                if (hab.getOcio() == 0 && hab.getSalud() == 0 && hab.getTrabajo() == 1) {
-                    resHabitos.setClickable(true);
-
-                    PROBLEMAOCIO = 1;
-
-                    habitos = "Sus hábitos en sus actividades destacan en : Trabajo ó Estudio " + "\n" + " Nota: intente también darse tiempo a usted mismo";
-                    resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
-                }
-                if (hab.getOcio() == 1 && hab.getSalud() == 0 && hab.getTrabajo() == 1) {
-                    resHabitos.setClickable(true);
-
-                    PROBLEMASALUD = 1;
-                    tienesalud = true;
-
-                    habitos = "Sus hábitos en sus actividades destacan en : Ocio y Trabajo ó Estudio" + "\n" + " Nota: intente dedicarle tiempo a su salud!";
-                    resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
-                }
-                if (hab.getOcio() == 0 && hab.getSalud() == 1 && hab.getTrabajo() == 1) {
-                    resHabitos.setClickable(true);
-
-                    EQUILIBRIO = 1;
-
-                    habitos = "Sus hábitos en sus actividades destacan en : Salud y Trabajo ó Estudio";
-                }
-                if (hab.getTiempoOcio() > 3) {
-                    resHabitos.setClickable(true);
-
-                    PROBLEMAOCIO = 1;
-
-                    ocio = "Su tiempo de ocio : " + hab.getTiempoOcio() + " HR(S) es considerado alto, considere bajarlo y usar ese tiempo en su salud, estudio o trabajo!";
-                    resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
-                }
-                if (hab.getTiempoOcio() > 0 && hab.getTiempoOcio() < 3) {
-                    resHabitos.setClickable(true);
-
-                    PROBLEMAOCIO = 2;
-                    tieneocio = true;
-
-                    ocio = "Su tiempo de ocio : " + hab.getTiempoOcio() + " HR(S) es considerado bajo, lo cual no le afecta directamente";
-                }
-                if (hab.getTiempoOcio() == 0) {
-                    resHabitos.setClickable(true);
-
-                    tieneocio = false;
-
-                    ocio = "Su tiempo de ocio es 0, Considere tener un poco de tiempo para usted mismo y divertirse no todo es el trabajo o el estudio";
-                    resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
-                }
-
-                resHabitos.setText(dia + "." + "\n\n" + horadormir + "." + "\n\n" + sueño + "." + "\n\n" + habitos + "." + "\n\n" + ocio + "." + "\n\n" + siestas + ".");
 
             }
         }
-
 
         if (as != null) {
             contador4 = (int) getIntent().getSerializableExtra("completado4");
             if (contador4 == 1) {
                 resSalud.setBackground(ContextCompat.getDrawable(this, R.drawable.vineta));
+
 
                 String consulta = null,medicamentos=null,emocionalmente=null,estres=null;
 
@@ -406,11 +168,7 @@ public class Menu extends AppCompatActivity {
                         consulta+"\n\n"+medicamentos+"\n\n"+emocionalmente+"\n\n"+estres);
             }
         }
-    }
-    private boolean nuevoUsuario()
-    {
-        SharedPreferences preferences = this.getSharedPreferences("User.dat", MODE_PRIVATE);
-        return preferences.getBoolean("Registrada", false);
+
     }
 public void Buscar (View view) {
     String habitos = null;
@@ -420,85 +178,333 @@ public void Buscar (View view) {
     String horadormir = null;
     String ocio = null;
 
-
-    boolean encontrado = false;
-    int y = -1;
-    if (id.getText().toString().isEmpty()) {
-        Toast.makeText(this,"¡No se ha introducido nada en los campo de código , no se puede buscar nada!",Toast.LENGTH_LONG).show();
+    if(arrUsuario == null) {
+        Toast.makeText(this, "¡Registre usuarios primero!", Toast.LENGTH_LONG).show();
     } else {
+        arrUsuario = (ArrayList<Usuario>)getIntent().getSerializableExtra("arreglo");
 
-        for (int i = 0; i < x + 1; i++) {
+        boolean encontrado = false;
+        int y = -1;
+        if (id.getText().toString().trim().isEmpty()) {
+            id.setError("Introduzca ID para continuar!");
+            id.setFocusable(true);
+        } else {
 
-            if (Integer.parseInt(id.getText().toString()) == (arrUsuario.get(i).getId())) {
-                y = i;
-                encontrado = true;
 
-                int x = 2; // poner punto despues de x digito
-                BigDecimal unscaled = new BigDecimal(arrUsuario.get(y).getEstatura());
-                BigDecimal scaled = unscaled.scaleByPowerOfTen(-x);
-                float imc = (float) ((arrUsuario.get(y).getPeso()) / (Math.pow(scaled.floatValue(), 2)));
-                String resultadoIMC = null;
-                String genero  = null;
+            for (int i = 0; i < arrUsuario.size(); i++) {
 
-                if (imc < 18.5) {
-                    // peso insuficiente
-                    resultadoIMC = "Su IMC es : " + imc + ", su peso es insuficiente";
-                    resDatos.setClickable(true);
-                    insuficiente = true;
-                    resDatos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                if (Integer.parseInt(id.getText().toString()) == (arrUsuario.get(i).getId())) {
+                    y = i;
+                    encontrado = true;
+                    resDatos.setBackground(ContextCompat.getDrawable(this, R.drawable.vineta));
+                    resAlimentos.setBackground(ContextCompat.getDrawable(this, R.drawable.vineta));
+                    resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.vineta));
+                    int x = 2; // poner punto despues de x digito
+                    BigDecimal unscaled = new BigDecimal(arrUsuario.get(y).getEstatura());
+                    BigDecimal scaled = unscaled.scaleByPowerOfTen(-x);
+                    float imc = (float) ((arrUsuario.get(y).getPeso()) / (Math.pow(scaled.floatValue(), 2)));
+                    String resultadoIMC = null;
+                    String genero  = null;
 
+                    if (imc < 18.5) {
+                        // peso insuficiente
+                        resultadoIMC = "Su IMC es : " + imc + ", su peso es insuficiente";
+                        resDatos.setClickable(true);
+                        insuficiente = true;
+                        resDatos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+
+                    }
+                    if (imc >= 18.5 && imc <= 24.9) {
+                        //peso normal o saludable
+                        resDatos.setClickable(true);
+                        resultadoIMC = "Su IMC es : " + imc + ", su peso esta normalmente saludable!";
+                        normal = true;
+                    }
+                    if (imc >= 25.0 && imc <= 29.9) {
+                        //sobrepeso
+                        resDatos.setClickable(true);
+                        resultadoIMC = "Su IMC es : " + imc + ", usted sufre de sobrepeso";
+                        resDatos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                        sobrepeso = true;
+                    }
+                    if (imc >= 30) {
+                        //obesidad
+                        resDatos.setClickable(true);
+                        obesidad = true;
+                        resultadoIMC = "Su IMC es : " + imc + ", usted sufre de obesidad";
+                        resDatos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                    }
+                    if (arrUsuario.get(y).getGenero() == 1) {
+                        genero = "Género: Hombre";
+                    }
+                    if (arrUsuario.get(y).getGenero() == 2) {
+                        genero = "Género: Mujer";
+                    }
+
+                    resDatos.setText("Nombre: " +arrUsuario.get(y).getNombre() +"."+"\n\n" + "Edad: " + arrUsuario.get(y).getEdad() +"."+ "\n\n" + genero +"."+
+                            "\n\n" + "Peso: " + arrUsuario.get(y).getPeso() + "kg" +"."+ "\n\n" + "Estatura: " + arrUsuario.get(y).getEstatura() + "cm"+"."+ "\n\n" + resultadoIMC+".");
+
+                    float caloriastotales = 0;
+                    if (arrUsuario.get(y).getOpcionLitrosAgua() == 1) {
+                        agua = "Consumo de agua al día: 1-2L";
+                        aguanormal = false;
+                    }
+                    if (arrUsuario.get(y).getOpcionLitrosAgua() == 2) {
+                        aguanormal = true;
+                        agua = "Consumo de agua al día: 2-3L";
+                    }
+                    if (arrUsuario.get(y).getOpcionLitrosAgua() == 3) {
+                        aguanormal = true;
+                        agua = "Consumo de agua al día: +3L";
+                    }
+                    if (arrUsuario.get(y).getEdad()>=14 && arrUsuario.get(y).getOpcionLitrosAgua() == 1) {
+                        aguanormal = false;
+                        resAlimentos.setClickable(true);
+                        resAlimentos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                        agua = "Consumo de agua al día: 1-2L, para tu edad, deberias consumir mas agua!";
+                    }
+                    if(arrUsuario.get(y).getOpcionLitrosAgua() == 3) {
+                        agua = "Consumo de agua al día: 1-2L, evita tomar mas de 3L de agua al día, pues puede ser dañino";
+                    }
+                    caloriastotales = arrUsuario.get(y).getDesayunoCalorias()+arrUsuario.get(y).getComidaCalorias()+arrUsuario.get(y).getCenaCalorias();
+
+                    if(arrUsuario.get(y).getGenero() == 1 || arrUsuario.get(y).getGenero() == 2  && caloriastotales >=2000 && caloriastotales <=2500) {
+                        resAlimentos.setClickable(true);
+                        ingestanormal = true;
+                        ingesta = "Su ingesta de calorías es saludable!, su total es : " +caloriastotales;
+                    }
+                    if(caloriastotales <1590) {
+                        ingestanormal = false;
+                        resAlimentos.setClickable(true);
+                        resAlimentos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                        ingesta = "Su ingesta de calorías es muy baja!, su total es : " +caloriastotales;
+                    }
+                    if(caloriastotales >2600) {
+                        ingestanormal = false;
+                        resAlimentos.setClickable(true);
+                        resAlimentos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                        ingesta = "Su ingesta de calorías es muy alta!, su total es : " +caloriastotales;
+                    }
+                    if(arrUsuario.get(y).getGenero() == 2 && caloriastotales >=1590 && caloriastotales <=2000) {
+                        ingestanormal = true;
+                        resAlimentos.setClickable(true);
+                        ingesta = "Su ingesta de calorías es saludable!, su total es : " +caloriastotales;
+                    }
+
+                    if (arrUsuario.get(y).getComidas() <=3) {
+                        entrecomidasnormal = true;
+                        resAlimentos.setClickable(true);
+                        entrecomidas = "Veces que come entre comidas: "+arrUsuario.get(y).getComidas();
+                    }
+                    if (arrUsuario.get(y).getComidas() >3) {
+                        entrecomidasnormal = false;
+                        resAlimentos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                        resAlimentos.setClickable(true);
+                        entrecomidas = "Veces que come entre comidas: "+arrUsuario.get(y).getComidas() +", come bastante entre comidas, lo cual no es recomendable!";
+                    }
+                    resAlimentos.setText(entrecomidas+"."+"\n\n"+
+                            "Calorías por desayuno: "+arrUsuario.get(y).getDesayunoCalorias()+"."+"\n\n"+
+                            "Calorías por comida: "+arrUsuario.get(y).getComidaCalorias()+"."+"\n\n"+
+                            "Calorías por cena: "+arrUsuario.get(y).getCenaCalorias()+"."+"\n\n"+agua +"."+"\n\n"+
+                            ingesta+".");
+
+                    if (arrUsuario.get(y).getTiempoSiesta() == 0 && arrUsuario.get(y).getTiempoOcio() >= 8) {
+                        resHabitos.setClickable(true);
+
+                        TIENESIESTAS = 2;
+                        TIENEOCIO = 1;
+                        tienesiestas = false;
+                        tieneocio = true;
+                        siestas = "Usted no suele tener siestas y tiene mucho tiempo de ocio, lo cual puede afectar a su salud!";
+                        resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                    }
+                    if (arrUsuario.get(y).getTiempoSiesta() == 0) {
+                        resHabitos.setClickable(true);
+
+                        TIENESIESTAS = 2;
+                        tienesiestas = false;
+                        siestas = "Usted no suele tener siestas, considere tener un mínimo de 30 minutos si tiene mucho trabajo!";
+                    }
+                    if (arrUsuario.get(y).getTiempoSiesta() >= 1) {
+                        resHabitos.setClickable(true);
+                        tienesiestas = true;
+                        TIENESIESTAS = 1;
+
+                        siestas = "Usted suele tomar siestas de: " + arrUsuario.get(y).getTiempoSiesta() + "HR(S) , si trabaja mucho, considere mantener este tiempo para descanar!";
+                    }
+                    if (arrUsuario.get(y).getTiempoSueño() <= 7) {
+                        resHabitos.setClickable(true);
+                        duermebien = false;
+                        DURMIOBIEN = 2;
+
+                        sueño = "Usted suele dormir : " + arrUsuario.get(y).getTiempoSueño() + " HR(S), lo cual es poco, considere dormir más!";
+                        resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                    }
+                    if (arrUsuario.get(y).getTiempoSueño() >= 8) {
+                        resHabitos.setClickable(true);
+                        duermebien = true;
+                        DURMIOBIEN = 1;
+
+                        sueño = "Usted suele dormir : " + arrUsuario.get(y).getTiempoSueño() + " HR(S), lo cual es considerado lo suficiente para tener buen descanso!";
+                    }
+
+                    if (arrUsuario.get(y).getHoraDormir() >= 11) {
+                        resHabitos.setClickable(true);
+                        seacuestatemprano = false;
+                        SEACUESTATEMPRANO = 2;
+
+                        horadormir = "Usted suele dormirse a las : " + arrUsuario.get(y).getHoraDormir() + ", lo cual es bastante tarde y no recomendable!";
+                        resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                    }
+                    if (arrUsuario.get(y).getHoraDormir() < 11) {
+                        resHabitos.setClickable(true);
+
+                        SEACUESTATEMPRANO = 1;
+                        seacuestatemprano = true;
+                        horadormir = "Usted suele dormirse a las : " + arrUsuario.get(y).getHoraDormir() + ", lo cual es temprano y saludable!";
+                    }
+
+
+                    if (arrUsuario.get(y).getDiaSemana() == 1) {
+                        resHabitos.setClickable(true);
+
+                        dia = "Dias en los que suele realizar las actividades registradas: Lunes a Viernes";
+                    }
+                    if (arrUsuario.get(y).getDiaSemana() == 2) {
+                        resHabitos.setClickable(true);
+
+                        dia = "Dias en los que suele realizar las actividades registradas: Sabado a Domingo";
+                    }
+
+                    if (arrUsuario.get(y).getOcio() == 1 && arrUsuario.get(y).getSalud() == 1 && arrUsuario.get(y).getTrabajo() == 1) {
+                        resHabitos.setClickable(true);
+
+                        EQUILIBRIO = 1;
+
+                        habitos = "Sus hábitos en sus actividades destacan en : Ocio,Salud y Trabajo ó Esutudio";
+                    }
+                    if (arrUsuario.get(y).getOcio() == 1 && arrUsuario.get(y).getSalud() == 0 && arrUsuario.get(y).getTrabajo() == 1) {
+                        resHabitos.setClickable(true);
+                        tienesalud = false;
+                        PROBLEMASALUD = 1;
+                        tienesalud = false;
+
+                        habitos = "Sus hábitos en sus actividades destacan en : Ocio y Trabajo " + "\n" + " Nota: intente dedicarle tiempo a su salud!";
+                        resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                    }
+                    if (arrUsuario.get(y).getOcio() == 1 ) {
+                        resHabitos.setClickable(true);
+                        tienesalud = false;
+                        PROBLEMASALUD = 1;
+                        tienesalud = false;
+
+                        habitos = "Sus hábitos en sus actividades destacan en : Ocio  " + "\n" + " Nota: intente dedicarle tiempo a su salud!";
+                        resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                    }
+                    if (arrUsuario.get(y).getTrabajo() == 1) {
+                        resHabitos.setClickable(true);
+                        tienesalud = false;
+                        PROBLEMASALUD = 1;
+                        tienesalud = false;
+
+                        habitos = "Sus hábitos en sus actividades destacan en : Trabajo  " + "\n" + " Nota: intente dedicarle tiempo a su salud!";
+                        resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                    }
+                    if (arrUsuario.get(y).getSalud() == 1 ) {
+                        resHabitos.setClickable(true);
+                        tienesalud = false;
+                        PROBLEMASALUD = 2;
+                        tienesalud = true;
+
+                        habitos = "Sus hábitos en sus actividades destacan en : Salud  ";
+                        resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                    }
+                    if (arrUsuario.get(y).getOcio() == 1 && arrUsuario.get(y).getSalud() == 0 && arrUsuario.get(y).getTrabajo() == 0) {
+                        resHabitos.setClickable(true);
+
+                        tienesalud = false;
+                        PROBLEMASALUD = 1;
+                        tienesalud = false;
+
+                        habitos = "Sus hábitos en sus actividades destacan en : Ocio " + "\n" + " Nota: intente dedicarle tiempo a su salud!";
+                        resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                    }
+                    if (arrUsuario.get(y).getOcio() == 1 && arrUsuario.get(y).getSalud() == 1 && arrUsuario.get(y).getTrabajo() == 0) {
+                        resHabitos.setClickable(true);
+
+                        EQUILIBRIO = 1;
+
+                        habitos = "Sus hábitos en sus actividades destacan en : Ocio y Salud";
+                    }
+                    if (arrUsuario.get(y).getOcio() == 0 && arrUsuario.get(y).getSalud() == 1 && arrUsuario.get(y).getTrabajo() == 0) {
+                        resHabitos.setClickable(true);
+
+                        EQUILIBRIO = 1;
+
+                        habitos = "Sus hábitos en sus actividades destacan en : Salud";
+                    }
+                    if (arrUsuario.get(y).getOcio() == 0 && arrUsuario.get(y).getSalud() == 0 && arrUsuario.get(y).getTrabajo() == 1) {
+                        resHabitos.setClickable(true);
+
+                        PROBLEMAOCIO = 1;
+
+                        habitos = "Sus hábitos en sus actividades destacan en : Trabajo ó Estudio " + "\n" + " Nota: intente también darse tiempo a usted mismo";
+                        resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                    }
+                    if (arrUsuario.get(y).getOcio() == 1 && arrUsuario.get(y).getSalud() == 0 && arrUsuario.get(y).getTrabajo() == 1) {
+                        resHabitos.setClickable(true);
+                        tieneocio=true;
+                        PROBLEMASALUD = 1;
+                        tienesalud = false;
+
+                        habitos = "Sus hábitos en sus actividades destacan en : Ocio y Trabajo ó Estudio" + "\n" + " Nota: intente dedicarle tiempo a su salud!";
+                        resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                    }
+                    if (arrUsuario.get(y).getOcio() == 0 && arrUsuario.get(y).getSalud() == 1 && arrUsuario.get(y).getTrabajo() == 1) {
+                        resHabitos.setClickable(true);
+
+                        EQUILIBRIO = 1;
+
+                        habitos = "Sus hábitos en sus actividades destacan en : Salud y Trabajo ó Estudio";
+                    }
+                    if (arrUsuario.get(y).getTiempoOcio() > 3) {
+                        resHabitos.setClickable(true);
+
+                        PROBLEMAOCIO = 1;
+
+                        ocio = "Su tiempo de ocio : " + arrUsuario.get(y).getTiempoOcio() + " HR(S) es considerado alto, considere bajarlo y usar ese tiempo en su salud, estudio o trabajo!";
+                        resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                    }
+                    if (arrUsuario.get(y).getTiempoOcio() > 0 && arrUsuario.get(y).getTiempoOcio() < 3) {
+                        resHabitos.setClickable(true);
+
+                        PROBLEMAOCIO = 2;
+                        tieneocio = true;
+
+                        ocio = "Su tiempo de ocio : " + arrUsuario.get(y).getTiempoOcio() + " HR(S) es considerado bajo, lo cual no le afecta directamente";
+                    }
+                    if (arrUsuario.get(y).getTiempoOcio() == 0) {
+                        resHabitos.setClickable(true);
+
+                        tieneocio = false;
+
+                        ocio = "Su tiempo de ocio es 0, Considere tener un poco de tiempo para usted mismo y divertirse no todo es el trabajo o el estudio";
+                        resHabitos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
+                    }
+
+                    resHabitos.setText(dia + "." + "\n\n" + horadormir + "." + "\n\n" + sueño + "." + "\n\n" + habitos + "." + "\n\n" + ocio + "." + "\n\n" + siestas + ".");
                 }
-                if (imc >= 18.5 && imc <= 24.9) {
-                    //peso normal o saludable
-                    resDatos.setClickable(true);
-                    resultadoIMC = "Su IMC es : " + imc + ", su peso esta normalmente saludable!";
-                    normal = true;
-                }
-                if (imc >= 25.0 && imc <= 29.9) {
-                    //sobrepeso
-                    resDatos.setClickable(true);
-                    resultadoIMC = "Su IMC es : " + imc + ", usted sufre de sobrepeso";
-                    resDatos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
-                    sobrepeso = true;
-                }
-                if (imc >= 30) {
-                    //obesidad
-                    resDatos.setClickable(true);
-                    obesidad = true;
-                    resultadoIMC = "Su IMC es : " + imc + ", usted sufre de obesidad";
-                    resDatos.setBackground(ContextCompat.getDrawable(this, R.drawable.opcional));
-                }
-                if (arrUsuario.get(y).getGenero() == 1) {
-                    genero = "Género: Hombre";
-                }
-                if (arrUsuario.get(y).getGenero() == 2) {
-                    genero = "Género: Mujer";
-                }
+            }
 
-                resDatos.setText("Nombre: " +arrUsuario.get(y).getNombre() +"."+"\n\n" + "Edad: " + arrUsuario.get(y).getEdad() +"."+ "\n\n" + genero +"."+
-                        "\n\n" + "Peso: " + arrUsuario.get(y).getPeso() + "kg" +"."+ "\n\n" + "Estatura: " + arrUsuario.get(y).getEstatura() + "cm"+"."+ "\n\n" + resultadoIMC+".");
-
-
-
-
-
-
+            if (encontrado == false) {
+                Toast.makeText(this, "¡No se encontró ningun registro de usuario que coincida con ese ID!", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "El indice de esta busqueda es : " + arrUsuario.indexOf(arrUsuario.get(y)), Toast.LENGTH_LONG).show();
             }
         }
 
-        if (encontrado == false) {
-            Toast.makeText(this, "¡No se encontró ningun registro de usuario que coincida con ese ID!", Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(this, "El indice de esta busqueda es : " + arrUsuario.indexOf(arrUsuario.get(y)), Toast.LENGTH_LONG).show();
-        }
+
     }
-
-
-
-            //EMPIEZA
-
-
-
 
 }
     public boolean onCreateOptionsMenu(android.view.Menu menu)
@@ -513,34 +519,38 @@ public void Buscar (View view) {
         Intent intent;
         switch (id) {
             case R.id.itmDatos:
-if(arrUsuario!=null && arrUsuario.isEmpty()== false) {
-    Toast.makeText(this, "Ultimo nombre del registro : "+ arrUsuario.get(arrUsuario.size()-1).getNombre(), Toast.LENGTH_LONG).show();
 
-}
+                if(arrUsuario!=null && arrUsuario.isEmpty()== false) {
+                    arrUsuario = (ArrayList<Usuario>)getIntent().getSerializableExtra("arreglo");
+
+                }
                 intent = new Intent(getApplicationContext(), Datos.class);
-
-
                     intent.putExtra("arreglo",arrUsuario);
                 startActivity(intent);
                 break;
 
             case R.id.itmAlimentacion:
+                arrUsuario = (ArrayList<Usuario>)getIntent().getSerializableExtra("arreglo");
                 dat = (datosclase) getIntent().getSerializableExtra("datos");
                 Intent alimentacion = new Intent(getApplicationContext(), Alimentacion.class);
                 alimentacion.putExtra("datos",dat);
+                alimentacion.putExtra("arreglo",arrUsuario);
                 startActivity(alimentacion);
                 break;
 
             case R.id.itmHabitos:
+                arrUsuario = (ArrayList<Usuario>)getIntent().getSerializableExtra("arreglo");
                 dat = (datosclase) getIntent().getSerializableExtra("datos");
                 alim = (alimentacionclase) getIntent().getSerializableExtra("alimentacion");
                 Intent habitos = new Intent(getApplicationContext(), Habitos.class);
                 habitos.putExtra("datos",dat);
                 habitos.putExtra("alimentacion",alim);
+                habitos.putExtra("arreglo",arrUsuario);
                 startActivity(habitos);
                 break;
 
             case R.id.itmSalud:
+                arrUsuario = (ArrayList<Usuario>)getIntent().getSerializableExtra("arreglo");
                 dat = (datosclase) getIntent().getSerializableExtra("datos");
                 alim = (alimentacionclase) getIntent().getSerializableExtra("alimentacion");
                 hab = (habitosclase ) getIntent().getSerializableExtra("habitos");
@@ -548,17 +558,22 @@ if(arrUsuario!=null && arrUsuario.isEmpty()== false) {
                 atencionsalud.putExtra("datos",dat);
                 atencionsalud.putExtra("alimentacion",alim);
                 atencionsalud.putExtra("habitos",hab);
+                atencionsalud.putExtra("arreglo",arrUsuario);
                 startActivity(atencionsalud);
                 break;
             case R.id.itmGuardarIMC:
+                arrUsuario = (ArrayList<Usuario>)getIntent().getSerializableExtra("arreglo");
                 dat = (datosclase) getIntent().getSerializableExtra("datos");
                 Intent guardar = new Intent(getApplicationContext(), GuardarIMC.class);
                 guardar.putExtra("datos",dat);
+                guardar.putExtra("arreglo",arrUsuario);
                 startActivity(guardar);
                 break;
 
             case R.id.itmCargarIMC:
+                arrUsuario = (ArrayList<Usuario>)getIntent().getSerializableExtra("arreglo");
                 intent = new Intent(getApplicationContext(), CargarIMC.class);
+                intent.putExtra("arreglo",arrUsuario);
                 startActivity(intent);
                 break;
             case R.id.itmCerrarSesion:

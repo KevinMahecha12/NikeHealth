@@ -85,21 +85,17 @@
                 app:layout_constraintVertical_bias="0.31"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
-            <Button
-                android:id="@+id/button"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buscar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:width="1dp"
-                android:background="@drawable/vineta"
+                android:background="@drawable/boton"
                 android:onClick="Buscar"
-                android:padding="10dp"
-                android:radius="15dp"
                 android:text="Buscar"
                 android:textColor="@color/white"
-                android:textSize="18dp"
-                android:textStyle="bold" />
+                android:textSize="20dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                  android:clickable="false"
